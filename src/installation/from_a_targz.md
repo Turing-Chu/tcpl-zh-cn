@@ -1,13 +1,13 @@
-# From a tar.gz
+# 从 tar.gz 中安
 
-If for any reason you can't or don't want to use one of the previous installation methods, you can still download Crystal in a standalone .tar.gz file with everything you need to get started.
+如果因为某个原因或不愿意使用上面的安装方式，也可以下载 Crystal 的单独的 .tar.gz 文件。
 
-The latest files can be found on the Releases page at GitHub: https://github.com/crystal-lang/crystal/releases
+最新文件可以在 GitHub 上的发布页面找到：[https://github.com/crystal-lang/crystal/releases](https://github.com/crystal-lang/crystal/releases)
 
-Download the file for your platform and uncompress it. Inside it you will have a `bin/crystal` executable.
+下载对应平台的文件并解压。在压缩包里会有一个可执行文件 `bin/crystal`。
 
-To make it simpler to use, you can create a symbolic link available in the path:
+为了便于使用，也可以创建一个符号链接：
 
 `ln -s [full path to bin/crystal] /usr/local/bin/crystal`
 
-Then you can invoke the compiler by just typing `crystal`.
+然后就可以键入 `crystal` 来使用编译器了。

@@ -1,18 +1,18 @@
-# On Bash on Ubuntu on Windows
+# 在 Windows 子系统 Ubuntu 的 Bash 上
 
-Crystal doesn't support Windows _yet_, but if you're using Windows 10 you can (experimentally) try Crystal using [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about), an experimental Bash environment running on Windows. The installation instructions are the same as for [Debian/Ubuntu](on_debian_and_ubuntu.md), but there are a few rough edges to be aware of.
+Crystal _尚未_支持 Windows，如果正在使用 Windows 10 则可以（尝试）通过 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about) -- 运行在 Windows 上的 Bash 测试环境来使用Crystal。本部分的安装说明与 [Debian/Ubuntu](on_debian_and_ubuntu.md) 的类似，但并没那么多毛边需要注意。
 
-Don't forget - **this is highly experimental**.
+记住：**这只是一个测试环境**。
 
-## Setup repository
+## 设置仓库
 
-First you have to add the repository to your APT configuration. For easy setup just run in your command line:
+首先必须把仓库加到 APT 配置里面去。这很容易设置，只需在命令行中执行：
 
 ```
 curl -sSL https://dist.crystal-lang.org/apt/setup.sh | sudo bash
 ```
 
-That will add the signing key and the repository configuration. If you prefer to do it manually, execute the following commands:
+这行脚本会加上签名密钥和仓库配置。如果希望手动配置，则可以执行下面的命令：
 
 ```
 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 09617FD37CC06B54
@@ -20,23 +20,25 @@ echo "deb https://dist.crystal-lang.org/apt crystal main" | sudo tee /etc/apt/so
 sudo apt-get update
 ```
 
-## Dependencies
-Crystal needs a C compiler (`cc`) and linker (`ld`) to be able to compile Crystal programs - so you should install them:
+## 依赖
+
+Crystal 需要 C 编译器 （ `cc` ）和连接器 （ `ld` ）来编译 Crystal程序，所以也需要安装 `cc` 和 `ld` ：
 
 ```
 sudo apt-get install clang binutils
 ```
 
-## Install
-Once the repository is configured and you have the dependencies, you're ready to install Crystal:
+## 安装
+
+一旦配置好仓库，就可以准备安装 Crystal 了：
 
 ```
 sudo apt-get install crystal
 ```
 
-## Upgrade
+## 升级
 
-When a new Crystal version is released you can upgrade your system using:
+当 Crystal 新版本发布时，可以使用下面命令升级系统：
 
 ```
 sudo apt-get update
