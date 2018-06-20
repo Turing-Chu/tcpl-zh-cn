@@ -8,8 +8,8 @@ rust:
 branches:
   only:
   - master 
-before_script:
-  - (cargo install mdbook --vers 0.1.7 --force || true)
+#before_script:
+  #- (cargo install mdbook --vers 0.1.7 --force || true)
 #  - mkdir -p tmp
 #  - git clone xxx - tmpx/xx
 #  - cmp_hash tmp/xx 2018-edition

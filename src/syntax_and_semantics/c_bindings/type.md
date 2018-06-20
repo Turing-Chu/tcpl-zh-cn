@@ -2,10 +2,10 @@
 
 > [syntax_and_semantics/c_bindings/type.md][type]
 >
-> [commit <hash>][commit]
+> [commit 974511cd057ed5b3d54a5b08704241500c56ef34>][commit]
 
-[type]: xx
-[commit]: comit
+[type]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/c_bindings/type.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/974511cd057ed5b3d54a5b08704241500c56ef34
 
 `lib` 中的 `type` 声明了一种 C 语言的 `typedef`，但比 C 语言的 `typedef` 更强大：
 
@@ -30,5 +30,5 @@ X.some_fun 1 # Error: argument 'value' of 'X#some_fun'
 
 因此， `type` 声明对于那些由封装的 C 库所创建的难懂的类型是非常有用的。例如，从 `fopen` 函数返回的 `FILE` 类型。
 
-Refer to the [type grammar](../type_grammar.html) for the notation used in typedef types.
+参考[类型语法](../type_grammar.html)来获取在使用 typedef 类型时的注意事项。
 

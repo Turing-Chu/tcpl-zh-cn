@@ -1,57 +1,23 @@
-# Crystal Programming Language
+# Crystal 程序设计语言
 
-[![Build Status](https://travis-ci.org/Turing-Chu/tcpl-zh-cn.svg?branch=master)](https://travis-ci.org/Turing-Chu/tcpl-zh-ch)
+[![Build Status](https://travis-ci.org/Turing-Chu/tcpl-zh-cn.svg?branch=master)](https://travis-ci.org/Turing-Chu/tcpl-zh-cn.svg?branch=master)
 
-This is the language reference for the Crystal programming language.
+本书为 Crystal 程序设计语言中文版的参考书。
 
-Crystal is a programming language with the following goals:
+Crystal 是一门以如下所列为目的的编程语言。
 
-* Have a syntax similar to Ruby (but compatibility with it is not a goal).
-* Be statically type-checked, but without having to specify the type of variables or method arguments.
-* Be able to call C code by writing bindings to it in Crystal.
-* Have compile-time evaluation and generation of code, to avoid boilerplate code.
-* Compile to efficient native code.
+* 同 Ruby 相似的语法，但并不以与 Ruby 兼容为目的。
+* 静态类型检查，但并不指定变量或方法参数的类型。
+* 可以在 Crystal 中编写同 C 语言绑定的代码以调用 C 语言代码。
+* 拥有编译时代码评估和迭代以避免样板代码。
+* 本地化代码的高效编译。
 
-## Contributing to the Language Reference
 
-Do you consider yourself a helpful person? If you find bugs or sections
-which need more clarification you're welcome to contribute to this
-language reference. You can submit a pull request to this repository:
-https://github.com/crystal-lang/crystal-book
+## 向语言参考作贡献
 
-Thank you very much!
+本书初步开始翻译，欢迎提 Issue 或 PR ：https://github.com/Turing-Chu/tcpl-zh-cn.git
 
-### Building and Serving Locally
+本书每个文件皆包含[原书](https://github.com/crystal-lang/crystal-book.git)文件地址和文件最后一次修改的 commit hash。如发现不一致，欢迎 提 Issue 或 PR。
 
-```
-$ git clone https://github.com/crystal-lang/crystal-book.git
-$ cd crystal-book
-$ npm install -g gitbook-cli@2.3.0
-$ npm install
-$ gitbook serve
-Live reload server started on port: 35729
-Press CTRL+C to quit ...
+本书以 Rust 语言的 mdbook 进行构建和管理，期待 Crystal 语言自身类似 gitbook 或 mdbook 的工具。
 
-info: 8 plugins are installed
-info: loading plugin "ga"... OK
-...
-Starting server ...
-Serving book on http://localhost:4000
-
-```
-
-Html output will be in `_book` folder (some links won't work if opening the files locally).
-There is also a docker environment to avoid installing dependencies globally:
-
-```
-$ docker-compose up
-...
-gitbook_1  | Starting server ...
-gitbook_1  | Serving book on http://localhost:4000
-gitbook_1  | Restart after change in file node_modules/.bin
-...
-```
-
-### Adding a page
-
-To add a page, create a markdown file in the desired location. Example: `overview/hello_world.md`. Then, add a link in the `SUMMARY.md` file which acts as the navigation for the language reference.
