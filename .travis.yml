@@ -1,5 +1,6 @@
 sudo: false
 dist: trusty
+os: osx
 language: rust
 cache: cargo
 rust:
@@ -9,8 +10,11 @@ branches:
   - master 
 before_script:
   - (cargo install mdbook --vers 0.1.7 --force || true)
+#  - mkdir -p tmp
+#  - git clone xxx - tmpx/xx
+#  - cmp_hash tmp/xx 2018-edition
 script:
-  - mdbook build
+  - ./tools/mdbook build
 deploy:
   provider: pages
   local-dir: book
