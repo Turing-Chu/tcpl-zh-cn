@@ -1,5 +1,12 @@
 # 浮点数(Floats)
 
+> [syntax_and_semantics/literals/floats.md][float]
+>
+> [commit 78d18cf29258956326c0989ff395b888b3a09d81][commit]
+
+[float]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/floats.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/78d18cf29258956326c0989ff395b888b3a09d81
+
 浮点数有两种类型，[32位浮点数(Float32)][float32] 和 [64位浮点数(Float64)][float64]，但都相当于由IEEE定义的 [binary32][binary32] 和 [binary64][binary64] 。
 
 [float32]: http://crystal-lang.org/api/Float32.html

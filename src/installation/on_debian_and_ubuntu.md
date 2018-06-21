@@ -1,5 +1,12 @@
 # Debian 和 Ubuntu
 
+> [installation/on_debian_and_ubuntu.md][on_debian_and_ubuntu]
+>
+> [commit 7932bad6385c21a3cc293f6323434fae28c564a1][commit]
+
+[on_debian_and_ubuntu]: https://github.com/crystal-lang/crystal-book/blob/master/installation/on_debian_and_ubuntu.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/7932bad6385c21a3cc293f6323434fae28c564a1
+
 在 Debian 衍生的分支系统上，可以使用官方 Crystal 仓库来安装。
 
 ## 设置仓库

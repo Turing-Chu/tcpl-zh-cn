@@ -1,5 +1,12 @@
 # 编译器的使用 
 
+> [using_the_compiler/README.md][readme]
+>
+> [commit 02f9bfe04acd4495e4bd72f480941224b5ec231e][commit]
+
+[readme]: https://github.com/crystal-lang/crystal-book/blob/master/using_the_compiler/README.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/02f9bfe04acd4495e4bd72f480941224b5ec231e
+
 当[安装](../installation/README.md)好编译器之后，在你的环境<!-- 原文单词 disposal-->中便生成了一个二进制文件 `crystal` 。
 
 在接下来的部分中， `$` 符号表示命令行。

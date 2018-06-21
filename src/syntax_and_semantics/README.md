@@ -1,5 +1,12 @@
 # 语法和语义
 
+> [syntax_and_semantics/README.md][readme]
+> 
+> [commit ed88f78fb944c2ec04d852cddd1cd656a26a82f6][commit] 
+
+[readme]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/README.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/ed88f78fb944c2ec04d852cddd1cd656a26a82f6
+
 程序源代码必须以 UTF-8 编码。
 
 * [注释](comments.html)

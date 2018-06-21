@@ -1,5 +1,11 @@
 # 字符(Char)
 
+> [syntax_and_semantics/literals/char.md][char]
+>
+> [commit 33885563f889c30d6dc8f6ed37af937ee48ef6de][commit]
+[char]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/char.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/33885563f889c30d6dc8f6ed37af937ee48ef6de
+
 一个[字符(Char)](http://crystal-lang.org/api/Char.html) 表示一个 32 位的 [Unicode](http://en.wikipedia.org/wiki/Unicode) [码点(code point)](http://en.wikipedia.org/wiki/Code_point) 。
 
 通常用单引号括起来的 UTF-8 字符常量来创建字符。 

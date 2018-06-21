@@ -1,5 +1,12 @@
 # 从源码编译
 
+> [installation/from_source_repository.md][from_source_repository]
+>
+> [commit 249a86b68c6b80c3a87b98bae9f97705e7195a0d][commit]
+
+[from_source_repository]: https://github.com/crystal-lang/crystal-book/blob/master/installation/from_source_repository.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/249a86b68c6b80c3a87b98bae9f97705e7195a0d 
+
 如果你希望贡献，那么你可以源码编译 Crystal。
 
 1. [安装最新发布版 Crystal ](https://crystal-lang.org/docs/installation)。需要 Crystal 来编译 Crystal :) 。

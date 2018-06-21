@@ -1,5 +1,12 @@
 # 在 Windows 子系统 Ubuntu 的 Bash 上
 
+> [installation/on_bash_on_ubuntu_on_windows.md][on_bash_on_ubuntu_on_windows]
+> 
+> [commit 9015d4fde569f9ab80de819cd79a1d6f19594649][commit]
+
+[on_bash_on_ubuntu_on_windows]: https://github.com/crystal-lang/crystal-book/blob/master/installation/on_bash_on_ubuntu_on_windows.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/9015d4fde569f9ab80de819cd79a1d6f19594649
+
 Crystal _尚未_支持 Windows，如果正在使用 Windows 10 则可以（尝试）通过 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about) -- 运行在 Windows 上的 Bash 测试环境来使用Crystal。本部分的安装说明与 [Debian/Ubuntu](on_debian_and_ubuntu.md) 的类似，但并没那么多毛边需要注意。
 
 记住：**这只是一个测试环境**。

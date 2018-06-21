@@ -1,5 +1,12 @@
 # 整数(Integers)
 
+> [syntax_and_semantics/literals/integers.md][integers]
+>
+> [commit 3543c1d2a27a2ceefdaade083be6dd32c78cc356][commit]
+
+[integers]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/integers.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/3543c1d2a27a2ceefdaade083be6dd32c78cc356
+
 有四种有符号整数类型和四种无符号整数类型：
 
 Type | Length  | Minimum Value | Maximum Value

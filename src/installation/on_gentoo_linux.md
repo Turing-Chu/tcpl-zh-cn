@@ -1,5 +1,12 @@
 #  Gentoo Linux
 
+> [installation/on_gentoo_linux.md][on_gentoo_linux]
+>
+> [commit dd80919fe40cc3cab8597155fadb002593fdf329][commit]
+
+[on_gentoo_linux]: https://github.com/crystal-lang/crystal-book/blob/master/installation/on_gentoo_linux.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/dd80919fe40cc3cab8597155fadb002593fdf329
+
 Gentoo Linux 的主干分支上覆盖了 Crystal 编译器。
 
 ## 配置

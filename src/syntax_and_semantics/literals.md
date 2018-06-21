@@ -1,5 +1,12 @@
 # 常量
 
+> [syntax_and_semantics/literals.md][literals]
+> 
+> [commit 979398f1828ee2dfb9023cbc3f860ac3569e2239][commit]
+
+[literals]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/979398f1828ee2dfb9023cbc3f860ac3569e2239
+
 Crystal 提供一些常量以创建部分基本类型的值。
  
 

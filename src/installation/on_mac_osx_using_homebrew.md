@@ -1,5 +1,12 @@
 # 在 Mac OSX 上使用 Homebrew
 
+> [installation/on_mac_osx_using_homebrew][on_mac_osx_using_homebrew]
+>
+> [commit 3a168049d61f3ae7c51f8dfbf9d6f582b610dfa5][commit]
+
+[on_mac_osx_using_homebrew]: https://github.com/crystal-lang/crystal-book/blob/master/installation/on_mac_osx_using_homebrew.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/3a168049d61f3ae7c51f8dfbf9d6f582b610dfa5
+
 在 Mac 上可以很容易地使用 [Homebrew](http://brew.sh/) 来安装 Crystal 。
 
 ```

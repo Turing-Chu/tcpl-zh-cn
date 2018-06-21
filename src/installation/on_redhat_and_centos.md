@@ -1,5 +1,12 @@
 # RedHat 和 CentOS
 
+> [installation/on_redhat_and_centos.md][on_redhat_and_centos]
+>
+> [commit 5ef4aa4a2a86e3b08e52ac9f6af8488972b4067b][commit]:
+
+[on_redhat_and_centos]: https://github.com/crystal-lang/crystal-book/blob/master/installation/on_redhat_and_centos.md
+[commit]:  https://github.com/crystal-lang/crystal-book/commit/5ef4aa4a2a86e3b08e52ac9f6af8488972b4067b
+
 在 RedHat 衍生的分支系统上，可以使用官方 Crystal 仓库。
 
 ## 设置仓库

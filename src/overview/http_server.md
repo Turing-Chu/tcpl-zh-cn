@@ -1,5 +1,12 @@
 # HTTP Server
 
+> [overview/http_server.md][http_server]
+>
+> [commit abc9abd90f69054c6bd0f20e4eaba3acbca7baf0][commit]
+
+[http_server]: https://github.com/crystal-lang/crystal-book/blob/master/overview/http_server.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/abc9abd90f69054c6bd0f20e4eaba3acbca7baf0
+
 一个更有意思的例子是 HTTP 服务器：
 
 ```crystal
