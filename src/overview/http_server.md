@@ -1,6 +1,6 @@
 # HTTP Server
 
-A slightly more interesting example is an HTTP Server:
+一个更有意思的例子是 HTTP 服务器：
 
 ```crystal
 require "http/server"
@@ -14,20 +14,21 @@ puts "Listening on http://127.0.0.1:8080"
 server.listen
 ```
 
-The above code will make sense once you read the whole language reference, but we can already learn some things.
+当你阅读正个语言参考书的时候，上面的代码便可以理解了，但我们已经学习了一些东西。
 
-* You can [require](../syntax_and_semantics/requiring_files.html) code defined in other files:
+* 可以[导入](../syntax_and_semantics/requiring_files.html)定义在其他文件中的代码：
+
 
     ```crystal
     require "http/server"
     ```
-* You can define [local variables](../syntax_and_semantics/local_variables.html) without the need to specify their type:
+* 可以定义[局部变量](../syntax_and_semantics/local_variables.html)而无需指定其类型：
 
     ```crystal
     server = HTTP::Server.new ...
     ```
 
-* You program by invoking [methods](../syntax_and_semantics/classes_and_methods.html) (or sending messages) to objects.
+* 通过在对象上调用[方法](../syntax_and_semantics/classes_and_methods.html)或发送消息来编写代码。
 
     ```crystal
     HTTP::Server.new(8080) ...
@@ -39,18 +40,15 @@ The above code will make sense once you read the whole language reference, but w
     server.listen
     ```
 
-* You can use code blocks, or simply [blocks](../syntax_and_semantics/blocks_and_procs.html), which are a very convenient way to reuse code and get some features from the functional world:
+* 可以使用代码块或简化[代码块](../syntax_and_semantics/blocks_and_procs.html)，其在重用代码或在实用的世界中得到一些特性时非常方便：
 
     ```crystal
     HTTP::Server.new(8080) do |context|
       ...
     end
     ```
-
-* You can easily create strings with embedded content, known as string interpolation. The language comes with other [syntax](../syntax_and_semantics/literals.html) as well to create arrays, hashes, ranges, tuples and more:
+* 可以使用嵌入式内容比较容易地创建字符串，即所谓字符串插值。语言本身也自带了其他的语法以创建数组、哈希、范围、元组等等：
 
     ```crystal
     "Hello world! The time is #{Time.now}"
     ```
-
-

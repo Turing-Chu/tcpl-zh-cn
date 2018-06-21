@@ -1,24 +1,25 @@
-# Writing Shards
+# 编写 Shard
 
-How to write and release Crystal Shards.
+如何编写以及发布 Shard 。
 
-## _What's a Shard?_
-Simply put, a Shard is a package of Crystal code, made to be shared-with and used-by other projects.
+## _什么是 Shard ？_
 
-## Introduction
+简单来说，Shard 是指可以被共享或被其他项目使用的 Crystal 代码包。
 
-In this tutorial, we'll be making a Crystal library called _palindrome-example_.
+## 简介
+
+本教程中，我们创建了一个名为 _palindrome-example_ 的 Crystal 库。
 
 > For those who don't know, a palindrome is a word which is spelled the same way forwards as it is backwards. e.g. racecar, mom, dad, kayak, madam
 
-### Requirements
+### 要求
 
 In order to release a Crystal Shard, and follow along with this tutorial, you will need the following:
 * A working installation of the [Crystal compiler](../using_the_compiler/README.md)
 * A working installation of [Git](https://git-scm.com)
 * A [GitHub](https://github.com) account
 
-### Creating the Project
+### 创建项目
 
 Begin by using [the Crystal compiler](../using_the_compiler/README.md)'s `init lib` command to create a Crystal library with the standard directory structure.
 
@@ -66,15 +67,15 @@ Then `add` & `commit` to start tracking the files with Git:
  create mode 100644 src/palindrome-example/version.cr
 ```
 
-### Writing the Code
+### 编写代码
 
 The code you write is up to you, but how you write it impacts whether people want to use your library and/or help you maintain it.
 
-#### Testing the Code
+#### 测试代码
 - Test your code. All of it. It's the only way for anyone, including you, to know if it works.
 - Crystal has [a built-in testing library](https://crystal-lang.org/api/Spec.html). Use it!
 
-#### Documentation
+#### 文档
 - Document your code with comments. All of it. Even the private methods.
 - Crystal has [a built-in documentation generator](../conventions/documenting_code.md). Use it!
 
@@ -89,7 +90,7 @@ Once your documentation is ready and available, add this documentation badge bel
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](<LINK-TO-YOUR-DOCUMENTATION>) 
 ```
 
-### Writing a README
+### 编写 README
 
 A good README can make or break your project.
 [Awesome README](https://github.com/matiassingers/awesome-readme) is a nice curation of examples and resources on the topic.
@@ -104,7 +105,7 @@ This explanation should include a few examples along with subheadings.
 NOTE: Be sure to replace all instances of `[your-github-name]` in the Crystal-generated README template with your GitHub username.
 
 
-#### Coding Style 
+#### 代码风格
 - It's fine to have your own style, but sticking to [some core rubrics defined by the Crystal team](../conventions/coding_style.md) can help keep your code consistent, readable and usable for other developers.
 - Utilize Crystal's [built-in code formatter](../conventions/documenting_code.md) to automatically format all `.cr` files in a directory.
 
@@ -123,11 +124,11 @@ crystal tool format --check
 See the Travis CI section below to implement this in your build.
 
 
-### Writing a `shard.yml`
+### 编写 `shard.yml`
 
 [The spec](https://github.com/crystal-lang/shards/blob/master/SPEC.md#names) is your rulebook. Follow it.
 
-#### Name
+#### 命名
 Your `shard.yml`'s `name` property should be concise and descriptive. 
 
 - Search [crystalshards.xyz](https://crystalshards.xyz/) to check if your name is already taken.
@@ -137,7 +138,7 @@ e.g.
 name: palindrome-example
 ```
 
-#### Description
+#### 描述
 Add a `description` to your `shard.yml`. 
 
 A `description` is a single line description used to search for and find your shard.
@@ -146,7 +147,7 @@ A description should be:
 1. Informative
 2. Discoverable
 
-#### Optimizing
+#### 优化
 It's hard for anyone to use your project if they can't find it.
 [crystalshards.xyz](https://crystalshards.xyz/) is currently the go-to place for Crystal libraries, so that's what we'll optimize for.
 
@@ -178,7 +179,7 @@ $ git remote add public https://github.com/<YOUR-GITHUB-NAME>/<YOUR-REPOSITORY-N
 $ git push public master
 ```
 
-#### GitHub Releases
+#### GitHub 发布
 It's good practice to do GitHub Releases.
 
 Add the following markdown build badge below the description in your README to inform users what the most current release is:
@@ -204,7 +205,7 @@ You'll now notice that the GitHub Release badge has updated in your README.
 
 Follow [Semantic Versioning](http://semver.org/) and create a new release every time your push new code to `master`.
 
-### Travis CI and `.travis.yml`
+### Travis CI 和 `.travis.yml`
 If you haven't already, [sign up for Travis CI](https://travis-ci.org/).
 
 Insert the following markdown build badge below the description in your README.md:

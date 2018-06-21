@@ -1,19 +1,19 @@
-# Overview
+# 概览
 
-You can read this document from top to bottom, but it’s advisable to jump through sections because some concepts are interrelated and can’t be explained in isolation.
+你可以从上到下阅读本章，但建议跳过这部分，因为一些相关概念无法单独解释。
 
-In code examples, the comment `#=>` is used to show the value of an expression. For example:
+在代码的例子中，注释 `#=>` 用于显示表达式的值。例如：
 
 ```crystal
 a = 1 + 2
 a #=> 3
 ```
 
-A comment using `:` is used for showing the type of a variable.
+注释里使用 `:` 用于显示变量的类型。
 
 ```crystal
 s = "hello"
 # s : String
 ```
 
-Let's start with two examples to familiarize ourselves with the language.
+让我们来从两个熟悉的例子开始学习这门语言。

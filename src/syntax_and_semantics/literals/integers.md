@@ -1,6 +1,6 @@
-# Integers
+# 整数(Integers)
 
-There are four signed integer types, and four unsigned integer types:
+有四种有符号整数类型和四种无符号整数类型：
 
 Type | Length  | Minimum Value | Maximum Value
  ---------- | -----------: | -----------: |-----------:
@@ -13,10 +13,7 @@ Type | Length  | Minimum Value | Maximum Value
 [UInt32](http://crystal-lang.org/api/UInt32.html) | 32 |  0 | 4,294,967,295
 [UInt64](http://crystal-lang.org/api/UInt64.html) | 64 | 0 | 2<sup>64</sup> - 1
 
-An integer literal is an optional `+` or `-` sign, followed by
-a sequence of digits and underscores, optionally followed by a suffix.
-If no suffix is present, the literal's type is the lowest between `Int32`, `Int64` and `UInt64`
-in which the number fits:
+一个整数常量由一个可选的 `+` 号或 `-` 号、一个数字序列或下划线和一个可选的后缀组成。若无后缀显示，则常量类型则是 `Int32` 、`Int64` 或 `UInt64` 中的最小值。其数字符合：
 
 ```crystal
 1      # Int32
@@ -38,27 +35,27 @@ in which the number fits:
 9223372036854775808 # UInt64
 ```
 
-The underscore `_` before the suffix is optional.
+后缀之前的下划线 `_` 是可选的。
 
-Underscores can be used to make some numbers more readable:
+下划线可以让一些数更可读：
 
 ```crystal
 1_000_000 # better than 1000000
 ```
 
-Binary numbers start with `0b`:
+二进制数以 `0b` 开头：
 
 ```crystal
 0b1101 # == 13
 ```
 
-Octal numbers start with a `0o`:
+八进制数以 `0o` 开头：
 
 ```crystal
 0o123 # == 83
 ```
 
-Hexadecimal numbers start with `0x`:
+十六进制数以 `0x` 开头：
 
 ```crystal
 0xFE012D # == 16646445
