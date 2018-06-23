@@ -1,8 +1,8 @@
-# Crystal 程序设计语言
+# Crystal 编程语言
 
 [![Build Status](https://travis-ci.org/Turing-Chu/tcpl-zh-cn.svg?branch=master)](https://travis-ci.org/Turing-Chu/tcpl-zh-cn.svg?branch=master)
 
-本书为 Crystal 程序设计语言中文版的参考书。
+本书为 Crystal 编程语言中文版的参考书。
 
 Crystal 是一门以如下所列为目的的编程语言。
 

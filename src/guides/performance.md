@@ -1,4 +1,4 @@
-# Performance
+# 性能
 
 Follow these tips to get the best out of your programs, both in speed and memory terms.
 

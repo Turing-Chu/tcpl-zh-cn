@@ -1,6 +1,6 @@
-# Regex
+# 正则(Regex)
 
-Regular expressions are represented by the [Regex](http://crystal-lang.org/api/Regex.html) class, which is usually created with a literal:
+正则(Regular) 表达式由 [Regex](http://crystal-lang.org/api/Regex.html) 类来表示，其通常用一个字面量来创建：
 
 ```crystal
 foo_or_bar = /foo|bar/
@@ -8,27 +8,26 @@ heeello    = /h(e+)llo/
 integer    = /\d+/
 ```
 
-A regular expression literal is delimited by `/` and uses [PCRE](http://pcre.org/pcre.txt) syntax.
+正则表达式字面量由 `/` 来限定，且使用 [PCRE](http://pcre.org/pcre.txt) 语法。
 
-It can be followed by these modifiers:
+正则之后可跟这些修饰词：
 
 * i: ignore case (PCRE_CASELESS)
 * m: multiline (PCRE_MULTILINE)
 * x: extended (PCRE_EXTENDED)
 
-For example
+例如
 
 ```crystal
 r = /foo/imx
 ```
-
-Slashes must be escaped:
+斜杠必须转义：
 
 ```crystal
 slash = /\//
 ```
 
-An alternative syntax is provided:
+也有另一种语法：
 
 ```crystal
 r = %r(regex with slash: /)

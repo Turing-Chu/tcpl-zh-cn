@@ -1,10 +1,12 @@
-# Visibility
+# 可见性
 
-Methods are public by default: the compiler will always let you invoke them, even if there is no `public` keyword.
+方法默认是共有的：编译器总允许调用方法，即使没有 `public` 关键字。
 
-Methods can be marked as `private` or `protected`.
+可以将方法标记为 `private` 或 `protected` 。
 
-## Private methods
+## 私有方法
+
+私有方法只可以被 。。。 也就是说，在点之前无任何东西：
 
 A `private` method can only be invoked without a receiver, that is, without something before the dot:
 
@@ -24,7 +26,7 @@ class Person
 end
 ```
 
-Note that `private` methods are visible by subclasses:
+注意 `private` 方法是可以被子类访问的：
 
 ```crystal
 class Employee < Person
@@ -34,8 +36,9 @@ class Employee < Person
 end
 ```
 
-## Private types
+## 私有类型
 
+私有类型只可以在其定义的命名空间内部引用，
 Private types can only be referenced inside the namespace where they are defined, and never be fully qualified.
 
 ```crystal
@@ -50,7 +53,8 @@ end
 Foo::Bar # Error
 ```
 
-`private` can be used with `class`, `module`, `lib`, `enum`, `alias` and constants:
+`private` 可以用于 `class` 、 `module` 、 `lib` 、 `enum` 、 `alias` 以及常量： 
+
 
 ```crystal
 class Foo
@@ -62,12 +66,13 @@ end
 Foo::ONE # Error
 ```
 
-## Protected methods
+## 受保护的方法
 
-A `protected` method can only be invoked on:
+一个`受保护的(protected)` 方法只可以被下面两种请况下调用：
 
-1. instances of the same type as the current type
-2. instances in the same namespace (class, struct, module, etc.) as the current type
+1. 与当前类型相同类型的实例
+2. 与当前类型在同一命名空间内的实例 （ class 、 struct 、 module 等）
+
 
 ```crystal
 ### Example of 1

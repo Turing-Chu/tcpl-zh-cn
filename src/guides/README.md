@@ -1,3 +1,3 @@
 # 指引
 
-Read these guides to get the best out of Crystal.
+阅读这些指引来优化 Crystal 。 

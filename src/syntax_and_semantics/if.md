@@ -1,7 +1,6 @@
 # if
 
-An `if` evaluates the given branch if its condition is *truthy*. Otherwise, it
-evaluates the `else` branch if present.
+`if` 计算给定 if 分支如果其条件为`真`。否则，计算 `else` 分支。
 
 ```crystal
 a = 1
@@ -19,7 +18,7 @@ end
 b #=> 20
 ```
 
-To write a chain of if-else-if you use `elsif`:
+可以用 `elsif` 来写一个 if-else-if 链：
 
 ```crystal
 if some_condition

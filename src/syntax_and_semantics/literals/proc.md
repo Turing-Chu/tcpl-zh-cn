@@ -1,6 +1,6 @@
-# Proc
+# 过程(Proc)
 
-A [Proc](http://crystal-lang.org/api/Proc.html) represents a function pointer with an optional context (the closure data). It is typically created with a proc literal:
+[过程(Proc)](http://crystal-lang.org/api/Proc.html) 表示一个可携带内容（闭包数据）函数指针。其通常用一个过程常量来创建：
 
 ```crystal
 # A proc without arguments
@@ -12,22 +12,22 @@ A [Proc](http://crystal-lang.org/api/Proc.html) represents a function pointer wi
 # A proc with two arguments:
 ->(x : Int32, y : Int32) { x + y } # Proc(Int32, Int32, Int32)
 ```
+参数类型是必不可少的，除非将一个过程常量发送给 C 绑定中一个库 `fun` 。
 
-The types of the arguments are mandatory, except when directly sending a proc literal to a lib `fun` in C bindings.
 
-The return type is inferred from the proc's body.
+返回值类型可以从过程体中推断。
 
-A special `new` method is provided too:
+同时也提供特定的 `new` 方法：
 
 ```crystal
 Proc(Int32, String).new { |x| x.to_s } # Proc(Int32, String)
 ```
 
-This form allows you to specify the return type and to check it against the proc's body.
+这种格式可以让你指定返回值类型以反过来检测过程体。
 
-## The Proc type
+## 过程类型
 
-To denote a Proc type you can write:
+可以和这样表示一个过程类型：
 
 ```crystal
 # A Proc accepting a single Int32 argument and returning a String
@@ -40,25 +40,25 @@ Proc(Void)
 Proc(Int32, String, Char)
 ```
 
-In type restrictions, generic type arguments and other places where a type is expected, you can use a shorter syntax, as explained in the [type](../type_grammar.html):
+在类型限制中，泛型类型参数以及其他需要参数的地方，可以像在[类型(type)](../type_grammar.html)中解释的那样使用简化语法：
 
 ```crystal
 # An array of Proc(Int32, String, Char)
 Array(Int32, String -> Char)
 ```
 
-## Invoking
+## 调用
 
-To invoke a Proc, you invoke the `call` method on it. The number of arguments must match the proc's type:
+为调用过程，可以在过程之上调用 `call` 方法。参数个数与类型必须和过程的参数个数和类型相匹配：
 
 ```crystal
 proc = ->(x : Int32, y : Int32) { x + y }
 proc.call(1, 2) #=> 3
 ```
 
-## From methods
+## 从方法中创建过程
 
-A Proc can be created from an existing method:
+可以从一个已存在的方法中创建过程：
 
 ```crystal
 def one
@@ -69,7 +69,7 @@ proc = ->one
 proc.call #=> 1
 ```
 
-If the method has arguments, you must specify their types:
+如果该方法有参数，则需要指定其类型：
 
 ```crystal
 def plus_one(x)
@@ -80,7 +80,7 @@ proc = ->plus_one(Int32)
 proc.call(41) #=> 42
 ```
 
-A proc can optionally specify a receiver:
+过程也可以指定一个接收者：
 
 ```crystal
 str = "hello"

@@ -1,18 +1,19 @@
-# String
+# 字符串(String)
 
-A [String](http://crystal-lang.org/api/String.html) represents an immutable sequence of UTF-8 characters.
+[字符串](http://crystal-lang.org/api/String.html) 表示一个 UTF-8 字符的不可变序列。
 
-A String is typically created with a string literal enclosing UTF-8 characters in double quotes (`"`):
+字符串通常以双引号（ `"` ）括起来的 UTF-8 字符串常量来创建。
 
 ```crystal
 "hello world"
 ```
 
-## Escaping
+## 转义
 
-A backslash denotes a special character inside a string, which can either be a named escape sequence or a numerical representation of a unicode codepoint.
+字符串中的反斜杠代表特殊字符，或是一个转义字符，或是一个 unicode 码点的数值表示。
 
-Available escape sequences:
+可用的转义序列
+
 ```crystal
 "\"" # double quote
 "\\" # backslash
@@ -29,9 +30,9 @@ Available escape sequences:
 "\u{NNNN...}" # hexadecimal unicode character
 ```
 
-Any other character following a backslash is interpreted as the character itself.
+反斜杠后的任何其他字符都被解释为该字符自身。
 
-A backslash followed by at most three digits denotes a code point written in octal:
+反斜杠后跟至多三个数字表示八进制数的一个码点。
 
 ```crystal
 "\101" # => "A"
@@ -40,7 +41,7 @@ A backslash followed by at most three digits denotes a code point written in oct
 "\1"   # string with one character with code point 1
 ```
 
-A backslash followed by a `u` denotes a unicode codepoint. It can either be followed by exactly four hexadecimal characters representing the unicode bytes (`\u0000` to `\uFFFF`) or a number of one to six hexadecimal characters wrapped in curly braces (`\u{0}` to `\u{10FFFF}`.
+反斜杠后跟一个 `u` 表示一个 unicode 码点。其既可以明确地跟4位十六进制字符来表示 unicode 字节（ `\u0000` 到 `\uFFFF`）或由大括号包括的一到六位十六进制数的字符（ `\u{0} 到 `\u{10FFF}`）表示的数。
 
 ```crystal
 "\u0041"    # => "A"
@@ -48,15 +49,16 @@ A backslash followed by a `u` denotes a unicode codepoint. It can either be foll
 "\u{1F52E}" # => "&#x1F52E;"
 ```
 
-One curly brace can contain multiple unicode characters each separated by a whitespace.
+一个大括号可以包括多个由空格分开的多个 unicode 字符。
 
 ```crystal
 "\u{48 45 4C 4C 4F}" # => "HELLO"
 ```
 
-## Interpolation
+## 插值
 
-A string literal with interpolation allows to embed expressions into the string which will be expanded at runtime.
+
+一个带有插值的字符串常量允许嵌入表达式到字符串中，其在运行时展开。
 
 ```crystal
 a = 1

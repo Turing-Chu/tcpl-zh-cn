@@ -1,4 +1,4 @@
-# Comments
+# 注释
 
 > [syntax_and_semantics/comments.md][comments]
 >

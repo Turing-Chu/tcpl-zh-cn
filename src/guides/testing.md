@@ -1,4 +1,4 @@
-# Testing Crystal Code
+# 测试 Crystal 代码
 
 Crystal comes with a fully-featured spec library in the [`Spec` module](https://crystal-lang.org/api/latest/Spec.html). It provides a structure for writing executable examples of how your code should behave.
 

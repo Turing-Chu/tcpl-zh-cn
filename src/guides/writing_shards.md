@@ -14,18 +14,19 @@
 
 ### 要求
 
-In order to release a Crystal Shard, and follow along with this tutorial, you will need the following:
-* A working installation of the [Crystal compiler](../using_the_compiler/README.md)
-* A working installation of [Git](https://git-scm.com)
-* A [GitHub](https://github.com) account
+为了发布 Crystal Shard ，并渐渐理解教程，你需要下列各项：
+* 一个可运行的 [Crystal 编译器](../using_the_compiler/README.md) 安装
+* 一个可运行的 [Git](https://git-scm.com) 安装
+* 一个 [GitHub](https://github.com) 账号
 
 ### 创建项目
 
-Begin by using [the Crystal compiler](../using_the_compiler/README.md)'s `init lib` command to create a Crystal library with the standard directory structure.
+首先，以 [Crystal 编译器](../using_the_compiler/README.md)的 `init lib` 命令来创建一个具有标准目录结构的 Crystal 库。
 
-In your terminal: `crystal init lib <YOUR-SHARD-NAME>`
+在终端中：`crystal init lib <YOUR-SHARD-NAME>`
 
-e.g.
+例如
+
 ```bash
  $  crystal init lib palindrome-example
       create  palindrome-example/.gitignore
@@ -41,14 +42,15 @@ e.g.
 Initialized empty Git repository in /<YOUR-DIRECTORY>/.../palindrome-example/.git/
 ```
 
-...and `cd` into the directory:
+然后 `cd` 到目录下：
 
-e.g.
+例如
+
 ```bash
 cd palindrome-example
 ```
 
-Then `add` & `commit` to start tracking the files with Git:
+然后使用 Git 的来 `添加` 和 `提交` 来追踪文件：
 
 ```bash
  $  git add -A
@@ -69,19 +71,20 @@ Then `add` & `commit` to start tracking the files with Git:
 
 ### 编写代码
 
-The code you write is up to you, but how you write it impacts whether people want to use your library and/or help you maintain it.
+代码由你来写，但你所写的代码影响到别人是否愿意使用你的库或者帮你维护它。
 
 #### 测试代码
-- Test your code. All of it. It's the only way for anyone, including you, to know if it works.
-- Crystal has [a built-in testing library](https://crystal-lang.org/api/Spec.html). Use it!
+- 测试代码。对任何人，包括你来说，这是知道所写的库是否正常的唯一方式。
+- Crystal 有个[内置测试库](https://crystal-lang.org/api/Spec.html)。使用它吧。
 
 #### 文档
-- Document your code with comments. All of it. Even the private methods.
-- Crystal has [a built-in documentation generator](../conventions/documenting_code.md). Use it!
+- 使用注释来文档化你的代码。所有的代码，甚至私有方法。
+- Crystal 有个内置[文档生成器](../conventions/documenting_code.md)。使用它吧。
 
-Run `crystal docs` to convert your code and comments into interlinking API documentation. Open the files in the `/docs/` directory with a web browser to see how your documentation is looking along the way.
+运行 `crystal docs` 来把代码和注释转换为可连接的 API 文档。在 `/docs/` 目录下用 web 浏览器打开文件以看看你的文档长什么样。
 
 See below for instructions on hosting your compiler-generated docs on GitHub Pages.
+
 
 Once your documentation is ready and available, add this documentation badge below the description in your README.md so users know that it exists.
 (Be sure to replace `<LINK-TO-YOUR-DOCUMENTATION>` accordingly)
@@ -283,4 +286,4 @@ deploy:
   local_dir: docs
 ```
 
-[Click Here](https://docs.travis-ci.com/user/deployment/pages/) for the official documentation on deploying to GitHub-Pages with Travis CI.
+[点击此处](https://docs.travis-ci.com/user/deployment/pages/) 以获取使用 Travis CI 发布到 GitHub-Pages 页面的官方文档。

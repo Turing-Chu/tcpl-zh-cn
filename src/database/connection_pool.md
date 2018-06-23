@@ -1,12 +1,13 @@
-# Connection pool
+# 连接池
 
-When a connection is established it usually means opening a TCP connection or Socket. The socket will handle one statement at a time. If a program needs to perform many queries simultaneously, or if it handles concurrent requests that aim to use a database, it will need more than one active connection.
+当创建连接时，通常意味着打开了一个 TCP 连接或 Socket 。该 socket 一次处理一条语句。如果程序需要同时执行多条查询，或者处理旨在使用数据库的同时发生的请求，则需要多个有效连接。
 
-Since databases are separate services from the application using them, the connections might go down, the services might be restarted, and other sort of things the program might not want to care about.
+鉴于应用在使用数据库时，数据库是独立的服务，连接可能丢失，服务可能重启，以及其他各种程序无需关心的情况。
 
-To address this issues usually a connection pool is a neat solution.
+在处理这样的问题上，一般连接池（ connection pool ）是一个利索的解决方法。
 
-When a database is opened with `crystal-db` there is already a connection pool working. `DB.open` returns a `DB::Database` object which manages the whole connection pool and not just a single connection.
+
+当使用 `crystal-db` 打开一个数据库时，已经有一个连接池在运行了。`DB.open` 返回一个 `DB::Database` 对象，其管理整个连接池而不仅仅是单个连接。
 
 ```crystal
 DB.open("mysql://root@localhost/test") do |db|
@@ -14,24 +15,24 @@ DB.open("mysql://root@localhost/test") do |db|
 end
 ```
 
-When executing statements using `db.query`, `db.exec`, `db.scalar`, etc. the algorithm goes:
+当使用 `db.query` 、 `db.exec` 、 `db.scalar` 等执行语句时，该算法：
 
-1. Find an available connection in the pool.
-   1. Create one if needed and possible.
-   2. If the pool is not allowed to create a new connection, wait a for a connection to become available.
-      1. But this wait should be aborted if it takes too long.
-2. Checkout that connection from the pool.
-3. Execute the SQL command.
-4. If there is no `DB::ResultSet` yielded, return the connection to the pool. Otherwise, the connection will be returned to the pool when the ResultSet is closed.
-5. Return the statement result.
+1. 在连接池中找到一个可用连接。
+	1. 如果需要或可能的话，则创建一个连接。
+	2. 如果连接池不再允许创建新的连接，则等待连接可用。
+		1. 如果等待太久，则会被中断。
+2. 从连接池中检出该连接。
+3. 执行 SQL 命令。
+4. 如果无 `DB::ResultSet 产生，则将该连接返回给连接池。否则，则在 结果集关闭时返回给连接池。
+5. 返回语句结果。
 
-If a connection can't be created, or if a connection loss occurs while the statement is performed the above process is repeated.
+如果无法创建连接，或者在赤星语句时发生连接丢失，则重复上面的过程。
 
-> The retry logic only happens when the statement is sent through the `DB::Database` . If it is sent through a `DB::Connection` or `DB::Transaction` no retry is performed since the code will state that certain connection object was expected to be used.
+> 重试逻辑只在通过 `DB::Database` 发送语句时发生。但如果用 `DB::Connection` 或 `DB::Transaction` 发送语句，是不执行重复逻辑的，因为代码规定了使用确定的连接对象。
 
-## Configuration
+## 配置
 
-The behavior of the pool can be configured from a set of parameters that can appear as query string in the connection URI.
+可以用一个参数集来配置连接池的行为，该参数集出现在 URI 连接的查询语句中。
 
 | Name | Default value |
 | :--- | :--- |
@@ -42,15 +43,15 @@ The behavior of the pool can be configured from a set of parameters that can app
 | retry\_attempts | 1 |
 | retry\_delay | 1.0 \(seconds\) |
 
-When `DB::Database` is opened an initial number of `initial_pool_size` connections will be created. The pool will never hold more than `max_pool_size` connections. When returning/releasing a connection to the pool it will be closed if there are already `max_idle_pool_size` idle connections.
+当 `DB::Database` 打开时，则初始创建了 `initial_pool_size` 个连接。该连接池不会持有超过 `max_pool_size` 个连接。当把一个连接返回或释放给连接池时，如果有 `max_idle_pool_size` 个空闲连接，则该连接会被关闭。
 
-If the `max_pool_size` was reached and a connection is needed, wait up to `checkout_timeout` seconds for an existing connection to become available.
+如果达到 `max_pool_size` 而又需要一个连接时，则会等待一个已有连接可用直到 `checkout_timeout` 秒超时。
 
-If a connection is lost or can't be established retry at most `retry_attempts` times waiting `retry_delay` seconds between each try.
+如果连接丢失或无法创建，重试至多 `retry_attempts` 次，每次间隔 `retry_delay` 秒。
 
-## Sample
+## 示例
 
-The following program will print the current time from MySQL but if the connection is lost or the whole server is down for a few seconds the program will still run without raising exceptions.
+下面的程序会打印从 MySQL 中读取的当前时间，但如果丢失连接或整个服务宕机几秒，该程序仍然运行而没有抛异常。
 
 ```crystal
 # file: sample.cr

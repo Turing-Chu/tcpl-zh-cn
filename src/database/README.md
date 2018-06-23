@@ -1,24 +1,25 @@
-# Database
+# 数据库
 
-To access a relational database you will need a shard designed for the database server you want to use. The package [crystal-lang/crystal-db](https://github.com/crystal-lang/crystal-db) offers a unified api across different drivers.
+可以使用一个为数据库服务器设计的 shard 来访问关系型数据库。在不同的驱动上，[crystal-lang/crystal-db](https://github.com/crystal-lang/crystal-db) 提供了统一的 api 接口。
 
-The following packages are compliant with crystal-db
+下面的包适用于 crystal-db：
 
-* [crystal-lang/crystal-sqlite3](https://github.com/crystal-lang/crystal-sqlite3) for sqlite
-* [crystal-lang/crystal-mysql](https://github.com/crystal-lang/crystal-mysql) for mysql & mariadb
-* [will/crystal-pg](https://github.com/will/crystal-pg) for postgres
 
-This guide presents the api of crystal-db, the sql commands might need to be adapted for the concrete driver due to differences between postgres, mysql and sqlite.
+* sqlite 的 [crystal-lang/crystal-sqlite3](https://github.com/crystal-lang/crystal-sqlite3)
+* mysql 和 mariadb 的 [crystal-lang/crystal-mysql](https://github.com/crystal-lang/crystal-mysql)
+* postgres 的 [will/crystal-pg](https://github.com/will/crystal-pg)
 
-Also some drivers may offer additional functionality like postgres `LISTEN`/`NOTIFY`.
+该指引提供 crystal-db 的 api ，鉴于 postgres 、mysql 和 sqlit 的差异，根据具体的驱动，需要 合适的 sql 命令。
 
-## Installing the shard
+另外，一些驱动可能会提供额外的功能，如 postgres 的 `LISTEN`/`NOTIFY` 。
 
-Choose the appropriate driver from the list above and add it as any shard to your application's `shard.yml`
+## 安装 shard
 
-There is no need to explicitly require `crystal-lang/crystal-db`
+和其他 shard 一样，从上面列表中选择适当的驱动并把它加入到应用的 `shard.yml` 文件中。
 
-During this guide `crystal-lang/crystal-mysql` will be used.
+不需要再明确地导入 `crystal-lang/crystal-db` 。
+
+在本指引中，使用 `crystal-lang/crystal-mysql` 。
 
 ```yaml
 dependencies:
@@ -26,9 +27,9 @@ dependencies:
     github: crystal-lang/crystal-mysql
 ```
 
-## Open database
+## 打开数据库连接
 
-`DB.open` will allow you to easily connect to a database using a connection uri. The schema of the uri determines the expected driver. The following sample connects to a local mysql database named test with user root and password blank.
+通过连接 url ，可以很容易地使用 `DB.open` 来连接数据库。uri 的规则决定了所需要的驱动。下面的例子用 root 用户以及空密码连接到一个本地 mysql 数据库中的 test 库。
 
 ```crystal
 require "db"
@@ -39,13 +40,14 @@ DB.open "mysql://root@localhost/test" do |db|
 end
 ```
 
-Other connection uris are
+其他的 连接  uri 为：
 
 * `sqlite3:///path/to/data.db`
 * `mysql://user:password@server:port/database`
 * `postgres://server:port/database`
 
 Alternatively you can use a non yielding `DB.open` method as long as `Database#close` is called at the end.
+另外，在 `Database#close` 被调用之前，可以使用一个非生产的 `DB.open` 方法。
 
 ```crystal
 require "db"
@@ -59,15 +61,15 @@ ensure
 end
 ```
 
-## Exec
+## 执行
 
-To execute sql statements you can use `Database#exec`
+可以用 `Database#exec` 来执行 sql 语句。
 
 ```crystal
 db.exec "create table contacts (name varchar(30), age int)"
 ```
 
-To avoid sql injection use parameters to submit data
+用参数来提交数据以防止 sql 注入。
 
 ```crystal
 db.exec "insert into contacts values (?, ?)", "John", 30
@@ -75,12 +77,13 @@ db.exec "insert into contacts values (?, ?)", "Sarah", 33
 ```
 
 Note: When using the pg driver, use `$1`, `$2`, etc. instead of `?`
+注意：当用 pg 驱动时，用 `$` 、 `$2` 等代替 `?` 。
 
-## Query
+## 查询
 
-To perform a query and get the result set use `Database#query`, arguments can be used as in `Database#exec`.
+使用 `Database#query` 来执行查询并获取结果集，在 `Database#exec` 中可以使用参数。
 
-`Database#query` returns a `ResultSet` that needs to be closed. As in `Database#open`, if called with a block, the `ResultSet` will be closed implicitly.
+`Database#query` 需要返回 `ResultSet` 类型来关闭查询。和在 `Database#open` 中一样，如果在代码块中调用，`ResultSet` 会默认关闭。
 
 ```crystal
 db.query "select name, age from contacts order by age desc" do |rs|
@@ -90,7 +93,7 @@ db.query "select name, age from contacts order by age desc" do |rs|
 end
 ```
 
-When reading values from the database there is no type information during compile time that crystal can use. You will need to call `rs.read(T)` with the type `T` you expect to get from the database.
+当从数据库中读取值时，crystal 在编译时并无类型信息可用。你需要在类型 `T` 上调用 `rs.read(T)` 方法来从数据库中获取你想要的。
 
 ```crystal
 db.query "select name, age from contacts order by age desc" do |rs|
@@ -104,24 +107,25 @@ db.query "select name, age from contacts order by age desc" do |rs|
 end
 ```
 
-There are many convenient query methods built on top of `#query`.
+有很多方便的查询方法被编译进 `#query` 里。
 
-You can read multiple columns at once:
+可以一次读取多个列：
 
 ```crystal
 name, age = rs.read(String, Int32)
 ```
 
-Or read a single row:
+或读取一行：
 
 ```crystal
 name, age = db.query_one "select name, age from contacts order by age desc limit 1", as: { String, Int32 }
 ```
 
-Or read a scalar value without dealing explicitly with the ResultSet:
+也可以读取标量值而无需用 ResultSet  明确的处理：
 
 ```crystal
 max_age = db.scalar "select max(age) from contacts"
 ```
 
-All available methods to perform statements in a database are defined in `DB::QueryMethods`.
+所有在数据库中执行语句的可用方法都定义在 `DB::QueryMethods` 中。
+

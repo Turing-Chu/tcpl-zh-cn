@@ -3,6 +3,7 @@
 > [syntax_and_semantics/literals/char.md][char]
 >
 > [commit 33885563f889c30d6dc8f6ed37af937ee48ef6de][commit]
+
 [char]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/char.md
 [commit]: https://github.com/crystal-lang/crystal-book/commit/33885563f889c30d6dc8f6ed37af937ee48ef6de
 

@@ -1,13 +1,13 @@
 # typeof
 
-The `typeof` expression returns the type of an expression:
+`typeof` 表达式返回一个表达式的类型：
 
 ```crystal
 a = 1
 b = typeof(a) #=> Int32
 ```
 
-It accepts multiple arguments, and the result is the union of the expression types:
+其接收多个参数，结果是表达式类型的联合体：
 
 ```crystal
 typeof(1, "a", 'a') #=> (Int32 | String | Char)

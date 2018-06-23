@@ -1,6 +1,6 @@
-# Conventions
+# 惯例
 
-Follow these conventions so your code will be more accessible to other developers.
+遵从下面这些惯例，因此，你的代码会被其他开发者更容易理解。
 
-* Use [standard coding style](coding_style.md) so your project will be navigable and readable to others.
-* Write [documentation](documenting_code.md) to express the purpose of your code and support the `crystal doc` generator.
+* 使用 [标准代码风格](coding_style.md)，对其他人来说，你的项目会可操作和可读。
+* 编写[文档](documenting_code.md)以解释代码的目的，并可支持 `crystal doc` 生成器。

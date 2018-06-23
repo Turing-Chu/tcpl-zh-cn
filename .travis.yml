@@ -20,6 +20,7 @@ deploy:
   local-dir: book
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
+  project_name: "Crystal 编程语言（中文版）"
   keep-history: false
   on:
     branch: master
