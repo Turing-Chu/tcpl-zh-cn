@@ -1,5 +1,12 @@
 # 数组(Array)
 
+> [syntax_and_semantics/literals/array.md][array]
+>
+> [commit 5fbec9153525316d71c74de4e6d039d803466c1a][commit]
+
+[array]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/array.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/5fbec9153525316d71c74de4e6d039d803466c1a
+
 [数组(Array)](http://crystal-lang.org/api/Array.html) 是一个以整数为索引的泛型有序集合，其元素为一个指定类型 `T` 。
 
 数组通常用一个以方括号（ `[]` ）表示的数组常量创建，其不同元素以逗号（ `,` ）分开。

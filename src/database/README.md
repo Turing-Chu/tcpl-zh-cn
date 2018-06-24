@@ -1,5 +1,12 @@
 # 数据库
 
+> [database/README.md][readme]
+>
+> [commit 266dc253028ecdf07a0e8cb14fb783e747c7104c][commit]
+
+[readme]: https://github.com/crystal-lang/crystal-book/blob/master/database/README.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/266dc253028ecdf07a0e8cb14fb783e747c7104c
+
 可以使用一个为数据库服务器设计的 shard 来访问关系型数据库。在不同的驱动上，[crystal-lang/crystal-db](https://github.com/crystal-lang/crystal-db) 提供了统一的 api 接口。
 
 下面的包适用于 crystal-db：

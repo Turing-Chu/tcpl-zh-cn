@@ -1,5 +1,12 @@
 # 文档化代码
 
+> [conventions/documenting_code.md][documenting_code]
+>
+> [commit 3b8344fba1d309657d15060009811376455c9d08][commit]
+
+[documenting_code]: https://github.com/crystal-lang/crystal-book/blob/master/conventions/documenting_code.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/3b8344fba1d309657d15060009811376455c9d08
+
 Crystal 文档注释使用 [Markdown](https://daringfireball.net/projects/markdown/) 的子集。
 
 * 文档应该放在类、模块以及方法的正上面。二者之间无空格。

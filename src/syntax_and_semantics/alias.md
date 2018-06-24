@@ -1,5 +1,12 @@
 # 别名
 
+> [syntax_and_semantics/alias.md][alias]
+>
+> [commit c55247a364ee0c01fd8b1e3d78f2e1352faaa1ea][commit]
+
+[alias]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/alias.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/c55247a364ee0c01fd8b1e3d78f2e1352faaa1ea
+
 可以用 `alias` 来给类型起一个不同的名字：
 
 ```crystal

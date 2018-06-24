@@ -1,5 +1,12 @@
 # 元组(Tuple)
 
+> [syntax_and_semantics/literals/tuple.md][tuple]
+>
+> [commit 78d18cf29258956326c0989ff395b888b3a09d81][commit]
+
+[tuple]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/tuple.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/78d18cf29258956326c0989ff395b888b3a09d81
+
 [元组(Tuple)](http://crystal-lang.org/api/Tuple.html) 通常以元组常量来创建：
 
 ```crystal

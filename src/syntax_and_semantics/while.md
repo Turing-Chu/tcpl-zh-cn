@@ -1,5 +1,12 @@
 # while 循环
 
+> [syntax_and_semantics/while.md][while]
+> 
+> [commit 08bd7620ca36c5fcf8b1f1aa14ba9c8bdb8e57b5][commit] 
+
+[while]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/while.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/08bd7620ca36c5fcf8b1f1aa14ba9c8bdb8e57b5
+
 `while` 循环只要判断条件为*真(truth)*，它便一直执行。
 
 ```crystal

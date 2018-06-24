@@ -1,5 +1,12 @@
 # 代码风格
 
+> [conventions/coding_style.md][coding_style]
+> 
+> [commit 261694dcfb416870928ca6593f065b39d2d6c283][commit]
+
+[coding_style]: https://github.com/crystal-lang/crystal-book/blob/master/conventions/coding_style.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/261694dcfb416870928ca6593f065b39d2d6c283 
+
 该代码风格在标准库中被使用。可以在你自己的项目中使用该代码风格，以便为其他开发者所熟悉。
 
 ## 命名

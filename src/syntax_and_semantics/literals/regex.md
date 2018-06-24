@@ -1,5 +1,12 @@
 # 正则(Regex)
 
+> [syntax_and_semantics/literals/regex.md][regex]
+>
+> [commit 0c157b7eaad13f191ddb73f148171f3579287279][commit] 
+
+[regex]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/regex.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/0c157b7eaad13f191ddb73f148171f3579287279
+
 正则(Regular) 表达式由 [Regex](http://crystal-lang.org/api/Regex.html) 类来表示，其通常用一个字面量来创建：
 
 ```crystal

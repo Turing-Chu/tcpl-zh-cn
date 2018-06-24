@@ -1,5 +1,12 @@
 # 过程(Proc)
 
+> [syntax_and_semantics/literals/proc.md][proc]
+>
+> [commit c0a0c628f4f2c7c9c57c4034834ddc45bbd7d7e4][commit]
+
+[proc]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/proc.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/c0a0c628f4f2c7c9c57c4034834ddc45bbd7d7e4
+
 [过程(Proc)](http://crystal-lang.org/api/Proc.html) 表示一个可携带内容（闭包数据）函数指针。其通常用一个过程常量来创建：
 
 ```crystal

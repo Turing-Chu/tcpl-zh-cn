@@ -1,5 +1,12 @@
 # 范围(Range)
 
+> [syntax_and_semantics/literals/range.md][range]
+>
+> [commit 0c157b7eaad13f191ddb73f148171f3579287279][commit]
+
+[range]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/literals/range.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/0c157b7eaad13f191ddb73f148171f3579287279
+
 [范围(Range)](http://crystal-lang.org/api/Range.html)通常由范围字面量构成：
 
 ```crystal

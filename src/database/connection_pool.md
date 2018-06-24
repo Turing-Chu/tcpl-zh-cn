@@ -1,5 +1,12 @@
 # 连接池
 
+> [database/connection_pool.md][connection_pool]
+>
+> [commit c7a2f89e6156a570f1a8183b47128dbcd9c391a9][commit]
+
+[connection_pool]: https://github.com/crystal-lang/crystal-book/blob/master/database/connection_pool.md
+[commit]:https://github.com/crystal-lang/crystal-book/commit/c7a2f89e6156a570f1a8183b47128dbcd9c391a9
+
 当创建连接时，通常意味着打开了一个 TCP 连接或 Socket 。该 socket 一次处理一条语句。如果程序需要同时执行多条查询，或者处理旨在使用数据库的同时发生的请求，则需要多个有效连接。
 
 鉴于应用在使用数据库时，数据库是独立的服务，连接可能丢失，服务可能重启，以及其他各种程序无需关心的情况。
