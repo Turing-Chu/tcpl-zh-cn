@@ -1,14 +1,19 @@
 # 可见性
 
+> [syntax_and_semantics/visibility.md][visibility]
+>
+> [commit f510983efc4bd9579c56ecbce5df5b96d54b11b6][commit]
+
+[commit]: https://github.com/crystal-lang/crystal-book/commit/f510983efc4bd9579c56ecbce5df5b96d54b11b6
+[visibility]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/visibility.md
+
 方法默认是共有的：编译器总允许调用方法，即使没有 `public` 关键字。
 
 可以将方法标记为 `private` 或 `protected` 。
 
 ## 私有方法
 
-私有方法只可以被 。。。 也就是说，在点之前无任何东西：
-
-A `private` method can only be invoked without a receiver, that is, without something before the dot:
+私有方法只可以被一个非接收者调用，也就是说，在点号之前无任何东西：
 
 ```crystal
 class Person
@@ -38,8 +43,7 @@ end
 
 ## 私有类型
 
-私有类型只可以在其定义的命名空间内部引用，
-Private types can only be referenced inside the namespace where they are defined, and never be fully qualified.
+私有类型只可以在其定义的命名空间内部引用。
 
 ```crystal
 class Foo
@@ -66,9 +70,9 @@ end
 Foo::ONE # Error
 ```
 
-## 受保护的方法
+## protected 方法
 
-一个`受保护的(protected)` 方法只可以被下面两种请况下调用：
+一个`protected` 方法只可以被下面两种请况下调用：
 
 1. 与当前类型相同类型的实例
 2. 与当前类型在同一命名空间内的实例 （ class 、 struct 、 module 等）
@@ -123,7 +127,7 @@ end
 Namespace::Bar.new.bar
 ```
 
-A `protected` class method can be invoked from an instance method and the other way around:
+`protected` 类方法可以在一个实例方法中调用：
 
 ```crystal
 class Person
@@ -137,9 +141,9 @@ class Person
 end
 ```
 
-## Private top-level methods
+## 私有顶级方法
 
-A `private` top-level method is only visible in the current file.
+一个 `private` 的顶级方法只可以在当前文件中被访问。
 
 ```crystal
 # In file one.cr
@@ -155,11 +159,12 @@ require "./one"
 greet # undefined local variable or method 'greet'
 ```
 
-This allows you to define helper methods in a file that will only be known in that file.
+这可以在一个文件中定义只为该文件所知的辅助方法。
 
-## Private top-level types
+## 私有顶级类型
 
-A `private` top-level type is only visible in the current file.
+一个 `private` 的顶级类型只能在当前文件中被访问。
+
 
 ```crystal
 # In file one.cr

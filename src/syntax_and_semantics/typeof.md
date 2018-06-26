@@ -1,5 +1,12 @@
 # typeof
 
+> [syntax_and_semantics/typeof.md][typeof]
+>
+> [commit ab174eb5c083fdad72b78c59414a73e9631653c6][commit]
+
+[commit]: https://github.com/crystal-lang/crystal-book/commit/ab174eb5c083fdad72b78c59414a73e9631653c6
+[typeof]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/typeof.md
+
 `typeof` 表达式返回一个表达式的类型：
 
 ```crystal
@@ -13,16 +20,13 @@ b = typeof(a) #=> Int32
 typeof(1, "a", 'a') #=> (Int32 | String | Char)
 ```
 
-It is often used in generic code, to make use of the compiler's type inference capabilities:
+其在一般代码中经常用到，用于编译器的类型推断容量：
 
 ```crystal
 hash = {} of Int32 => String
 another_hash = typeof(hash).new #:: Hash(Int32, String)
 ```
-
-Since `typeof` doesn't actually evaluate the expression, it can be
-used on methods at compile time, such as in this example, which
-recursively forms a union type out of nested type parameters:
+因为 `typeof` 实际上并不计算表达式，它只能用于编译时的方法中，例如，递归的构成一个内嵌类型参数的联合类型：
 
 ```crystal
 class Array
@@ -41,4 +45,4 @@ typeof(nest) #=> Array(Int32 | Array(String | Array(Symbol | Array(Char))))
 typeof(flat) #=> Array(String | Int32 | Symbol | Char)
 ```
 
-This expression is also available in the [type grammar](type_grammar.html).
+该表达式也可以在[类型语法](type_grammar.html)中使用。
