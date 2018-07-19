@@ -2,10 +2,10 @@
 
 > [using_the_compiler/README.md][readme]
 >
-> [commit 02f9bfe04acd4495e4bd72f480941224b5ec231e][commit]
+> [commit 6133ed0106b43ed5801dfbb4939f5a0ab27332ad][commit]
 
 [readme]: https://github.com/crystal-lang/crystal-book/blob/master/using_the_compiler/README.md
-[commit]: https://github.com/crystal-lang/crystal-book/commit/02f9bfe04acd4495e4bd72f480941224b5ec231e
+[commit]: https://github.com/crystal-lang/crystal-book/commit/6133ed0106b43ed5801dfbb4939f5a0ab27332ad
 
 当[安装](../installation/README.md)好编译器之后，在你的环境<!-- 原文单词 disposal-->中便生成了一个二进制文件 `crystal` 。
 
@@ -27,7 +27,7 @@ crystal 文件皆以 `.cr` 扩展名结尾。
 $ crystal run some_program.cr
 ```
 
-## 创建可执行的动态链接
+## 创建动态链接的可执行文件
 
 可以使用 `build` 命令创建一个可执行文件。
 
@@ -53,13 +53,15 @@ $ crystal build some_program.cr --release
 
 为了降低二进制文件的大小，可以加上 `--no-debug` 参数并使用 `strip` 命令。如果文件大小是个问题或者无需调试程序的话，使用这个选项会删除掉 Debug 符号。
 
-## 创建一个可执行的独立文件
+## 创建一个静态连接的可执行文件
 
-把你的程序构建成一个独立的可执行文件：
+把你的程序构建成一个静态链接的可执行文件：
 
 ```
 $ crystal build some_program.cr --release --static
 ```
+
+**注意：** 构建静态链接的可执行文件目前仅在 Alpine Linux 系统上支持。
 
 关于静态链接的更多信息可以在[wiki](https://github.com/crystal-lang/crystal/wiki/Static-Linking) 找到。
 

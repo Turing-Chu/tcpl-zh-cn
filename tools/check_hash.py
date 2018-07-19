@@ -109,3 +109,4 @@ if __name__ == '__main__':
             continue
         if original_hash[f]['commit_hash'] != tpl_hash[f]['commit_hash']:
             logger.warning("{}: {} - {}".format(f, original_hash[f]['commit_hash'], tpl_hash[f]['commit_hash']))
+    print("total: {}".format(len(original_hash.keys())))
