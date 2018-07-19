@@ -1,6 +1,13 @@
-# Assignment
+# 赋值
 
-Assignment is done with the equals (`=`) character.
+> [syntax_and_semantics/assignment.md][assignment]
+> 
+> [commit bc665fe1a4c144c464fdd5002ce3848e882ffdee][commit]
+
+[assignment]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/assignment.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/bc665fe1a4c144c464fdd5002ce3848e882ffdee
+
+赋值以等号字符（ `=` ）来执行。
 
 ```crystal
 # Assigns to a local variable
@@ -13,9 +20,9 @@ local = 1
 @@class = 3
 ```
 
-Each of the above kinds of variables will be explained later on.
+随后会解释上面每一种变量类型。
 
-Some syntax sugar that contains the `=` character is available:
+一些包含 `=` 符号的可用语法糖：
 
 ```crystal
 local += 1  # same as: local = local + 1
@@ -27,7 +34,7 @@ local ||= 1 # same as: local || (local = 1)
 local &&= 1 # same as: local && (local = 1)
 ```
 
-A method invocation that ends with `=` has syntax sugar:
+以 `=` 结尾的函数调用语法糖：
 
 ```crystal
 # A setter
@@ -49,7 +56,7 @@ objects.[](2, 3)
 objects[2, 3]
 ```
 
-The `=` operator syntax sugar is also available to setters and indexers. Note that `||` and `&&` use the `[]?` method to check for key presence.
+`=` 操作符也可用于 setter 和 indexer 之上。注意 `||` 和 `&&` 使用 `[]?` 方法来检测键的存在性。
 
 ```crystal
 person.age += 1        # same as: person.age = person.age + 1

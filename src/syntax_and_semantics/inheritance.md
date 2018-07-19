@@ -1,8 +1,15 @@
-# Inheritance
+# 继承
 
-Every class except `Object`, the hierarchy root, inherits from another class (its superclass). If you don't specify one it defaults to `Reference` for classes and `Struct` for structs.
+> [syntax_and_semantics/inheritance.md][inheritance]
+>
+> [commit a32014850bb26937bcee0e2f969e66cb81616cb1][commit]
 
-A class inherits all instance variables and all instance and class methods of a superclass, including its constructors (`new` and `initialize`).
+[inheritance]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/inheritance.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/a32014850bb26937bcee0e2f969e66cb81616cb1
+
+除了层次的根 `Object` 类，每一个类都是从另一个类（该类的父类）继承而来。如果不特别指明，其默认是类的 `Reference` 和结构体的 `Struct` 。
+
+类继承其父类的所有实例变量以及所有实例方法和类方法，包括其构造器（ `new` 和 `initialize` ）。
 
 ```crystal
 class Person
@@ -21,7 +28,7 @@ employee = Employee.new "John"
 employee.greet # "Hi, I'm John"
 ```
 
-If a class defines a `new` or `initialize` then its superclass constructors are not inherited:
+如果类定义了 `new` 或  `initialize` 方法，则其父类的构造器不会被继承：
 
 ```crystal
 class Person
@@ -39,7 +46,7 @@ Employee.new "Peter" # Error: wrong number of arguments
                      # for 'Employee:Class#new' (1 for 2)
 ```
 
-You can override methods in a derived class:
+可以在派生类中覆盖方法：
 
 ```crystal
 class Person
@@ -61,7 +68,7 @@ e = Employee.new
 e.greet "everyone" # "Hello, everyone"
 ```
 
-Instead of overriding you can define specialized methods by using type restrictions:
+除了覆盖，也可以用保留类型来定义特定的方法：
 
 ```crystal
 class Person
@@ -84,7 +91,7 @@ e.greet 1 # "Hi, this is a number: 1"
 
 ## super
 
-You can invoke a superclass' method using `super`:
+可以用  `super` 来调用父类的方法：
 
 ```crystal
 class Person
@@ -101,4 +108,4 @@ class Employee < Person
 end
 ```
 
-Without arguments or parentheses, `super` receives the same arguments as the method's arguments. Otherwise, it receives the arguments you pass to it.
+不待参数和括号的 `super` 接收和方法相同的参数。否则，接收所传递给它的参数。

@@ -1,15 +1,22 @@
-# Local variables
+# 局部变量
 
-Local variables start with lowercase letters. They are declared when you first assign them a value.
+> [syntax_and_semantics/local_variables.md][local_variables]
+>
+> [commit 1142db80f9452eacce300afd64a846c91ca5cd2f][commit]
+
+[local_variables]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/local_variables.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/1142db80f9452eacce300afd64a846c91ca5cd2f
+
+局部变量以小写字符开始。其以初次赋值变量来声明。
 
 ```crystal
 name = "Crystal"
 age = 1
 ```
 
-Their type is inferred from their usage, not only from their initializer. In general, they are just value holders associated with the type that the programmer expects them to have according to their location and usage on the program.
+其类型从他们的用法中推断，而不是其初始化变量。通常，局部变量只保留程序员所期望根据其在程序中的位置和用法的类型有关的值。
 
-For example, reassigning a variable with a different expression makes it have that expression’s type:
+例如，以一个不同的表达式重新赋值让其变成表达式的类型：
 
 ```crystal
 flower = "Tulip"
@@ -19,4 +26,4 @@ flower = 1
 # At this point 'flower' is an Int32
 ```
 
-Underscores are allowed at the beginning of a variable name, but these names are reserved for the compiler, so their use is not recommended (and it also makes the code uglier to read).
+可在变量名前面使用下划线，但这些名字是编译器所保留的，因此，并不建议这样使用（而且这样做让程序更加难读）。

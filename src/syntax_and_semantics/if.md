@@ -1,5 +1,12 @@
 # if
 
+> [syntax_and_semantics/if.md][if]
+>
+> [commit d9e62d44ba404aa389ffc81b32a547207a0ab68e][commit]
+
+[if]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/if.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/d9e62d44ba404aa389ffc81b32a547207a0ab68e
+
 `if` 计算给定 if 分支如果其条件为`真`。否则，计算 `else` 分支。
 
 ```crystal
@@ -30,7 +37,7 @@ else
 end
 ```
 
-After an `if`, a variable’s type depends on the type of the expressions used in both branches.
+在 `if` 之后，变量的类型依赖于在两个分支中使用的表达式的类型。
 
 ```crystal
 a = 1
@@ -60,9 +67,9 @@ end
 # d : Int32 | Nil
 ```
 
-Note that if a variable is declared inside one of the branches but not in the other one, at the end of the `if` it will also contain the `Nil` type.
+注意如果在其中一个分支内声明变量而没有在另一个分支内声明，那么在 `if` 结尾该变量也会包含 `Nil` 类型。
 
-Inside an `if`'s branch the type of a variable is the one it got assigned in that branch, or the one that it had before the branch if it was not reassigned:
+在一个 `if` 分支的内部，变量的类型从在该分支之内的赋值之中获取，如果没有重新赋值的话，则是在该分支之前的赋值之中获取。
 
 ```crystal
 a = 1
@@ -74,9 +81,9 @@ end
 # a : String | Int32
 ```
 
-That is, a variable’s type is the type of the last expression(s) assigned to it.
+也就是说，变量的类型是最后一个赋值给变量的表达式的类型。
 
-If one of the branches never reaches past the end of an `if`, like in the case of a `return`, `next`, `break` or `raise`, that type is not considered at the end of the `if`:
+如果直到 `if` 的结尾其中一个分支从不会到达，像在一个 `return` 、`next` 、`break` 或 `raise` 的例子中，则在 `if` 结尾并不再考虑该变量类型：
 
 ```crystal
 if some_condition

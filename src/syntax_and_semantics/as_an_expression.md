@@ -1,6 +1,13 @@
-# As an expression
+# 用作表达式
 
-The value of an `if` is the value of the last expression found in each of its branches:
+> [syntax_and_semantics/as_an_expression.md][as_an_expression]
+> 
+> [commit 0c157b7eaad13f191ddb73f148171f3579287279][commit]
+
+[as_an_expression]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/as_an_expression.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/0c157b7eaad13f191ddb73f148171f3579287279
+
+一个 `if` 的值是其每个分支最后一个表达式的值。
 
 ```crystal
 a = if 2 > 1
@@ -11,7 +18,7 @@ a = if 2 > 1
 a #=> 3
 ```
 
-If an `if` branch is empty, or it’s missing, it’s considered as if it had `nil` in it:
+如果一个 `if` 分支是空的，或者缺失，则认为其有一个 `nil` 值。
 
 ```crystal
 if 1 > 2
