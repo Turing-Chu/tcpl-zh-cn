@@ -1,6 +1,13 @@
-# Class methods
+# 类方法
 
-Class methods are methods associated to a class or module instead of a specific instance.
+> [syntax_and_semantics/class_methods.md][class_methods]
+> 
+> [commit 25b85d805ea5650c761308e282e8606cc3635560][commit]
+
+[class_methods]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/class_methods.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/25b85d805ea5650c761308e282e8606cc3635560
+
+类方法是与类或模块而非特定实例相关联的方法。
 
 ```crystal
 module CaesarCipher
@@ -12,7 +19,7 @@ end
 CaesarCipher.encrypt("HELLO") # => "URYYB"
 ```
 
-Class methods are defined by prefixing the method name with the type name and a period.
+类方法由方法名和一个带逗点的类型名定义。
 
 ```crystal
 def CaesarCipher.decrypt(string : String)
@@ -20,14 +27,15 @@ def CaesarCipher.decrypt(string : String)
 end
 ```
 
-When they're defined inside a class or module scope it is easier to use `self` instead of the class name.
+当类方法定义在类或模块内部时，使用 `self` 要比类名更方便。
 
-Class methods can also be defined by [extending a `Module`](modules.md#extend-self).
+类方法也可以由[`模块`扩展](modules.md#extend-self)来定义。
 
-A class method can be called under the same name as it was defined (`CaesarCipher.decrypt("HELLO")`).
-When called from within the same class or module scope the receiver can be `self` or implicit (like `encrypt(string)`).
+类方法可以在其定义的同名之下调用(`CaesarCipher.decrypt("HELLO")`)。
 
-# Constructors
+当在相同类或模块范围内调用类方法时，接收者可以是 `self` 或隐式调用 （如`encrypt(string)`）。
 
-Constructors are normal class methods which [create a new instance of the class](new,_initialize_and_allocate.md).
-By default all classes in Crystal have at least one constructor called `new`, but they may also define other constructors with different names.
+# 构造器
+
+构造器是常规类方法，其可以[创建类的新实例](new,_initialize_and_allocate.md)。
+Crystal 中所有的类默认至少有一个名为 `new` 的构造器，但也可以以不同的名字定义其他的构造器。

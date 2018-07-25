@@ -1,6 +1,13 @@
-# Class variables
+# 类变量
 
-Class variables are associated to classes instead of instances. They are prefixed with two "at" signs (`@@`). For example:
+> [syntax_and_semantics/class_variables.md][class_variables]
+>
+> [commit f3435e1d16811195be4b05c478e8a542f5de5365][commit]
+
+[class_variables]: https://github.com/crystal-lang/crystal-book/blob/master/syntax_and_semantics/class_variables.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/f3435e1d16811195be4b05c478e8a542f5de5365
+
+类变量是和类而不是实例有关的变量。其以两个 “at”（ `@@` ）符号作为前缀。例如：
 
 ```crystal
 class Counter
@@ -22,11 +29,11 @@ Counter.new
 Counter.instances #=> 3
 ```
 
-Class variables can be read and written from class methods or instance methods.
+可以在类方法或实例方法中读写类变量。
 
-Their type is inferred using the [global type inference algorithm](type_inference.html).
+类变量的类型使用[全局类型推断算法](type_inference.html)来猜测。
 
-Class variables are inherited by subclasses with this meaning: their type is the same, but each class has a different runtime value. For example:
+类变量从父类中继承，这意味着：其类型相同，但每个类都有不同的运行时值。例如：
 
 ```crystal
 class Parent
@@ -48,4 +55,4 @@ Parent.numbers # => [1]
 Child.numbers # => []
 ```
 
-Class variables can also be associated to modules and structs. Like above, they are inherited by including/subclassing types.
+类变量也可以关联模块或结构体。和上面一样，他们继承自导入类型或父类类型。
