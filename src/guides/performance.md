@@ -1,48 +1,62 @@
 # 性能
 
-Follow these tips to get the best out of your programs, both in speed and memory terms.
+> [guides/performance.md][performance]
+>
+> [commit 1513574a9de427281f7d9a9d44af499796f721b1][commit]
 
-## Premature optimization
+[performance]: https://github.com/crystal-lang/crystal-book/blob/master/guides/performance.md
+[commit]: https://github.com/crystal-lang/crystal-book/commit/1513574a9de427281f7d9a9d44af499796f721b1
 
-Donald Knuth once said:
+遵从这些提示来让程序在运行速度和内存上获得更好的输出。
 
-> We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%.
+## 过早的优化
 
-However, if you are writing a program and you realize that writing a semantically equivalent, faster version involves just minor changes, you shouldn't miss that opportunity.
+Donald Knuth 曾经说过：
 
-And always be sure to profile your program to learn what its bottlenecks are. For profiling, on Mac OSX you can use [Instruments Time Profiler](https://developer.apple.com/library/prerelease/content/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Instrument-TimeProfiler.html), which comes with XCode. On Linux, any program that can profile C/C++ programs, like [perf](https://perf.wiki.kernel.org/index.php/Main_Page) or [Callgrind](http://valgrind.org/docs/manual/cl-manual.html), should work.
+> 我们应该忘记小的效率，既是 97% 的时间：过早优化是万恶之源。然而我们不应该放弃那至关重要的 3% 的机会。
 
-Make sure to always profile programs by compiling or running them with the `--release` flag, which turns on optimizations.
+但是，如果你正在编写程序，并且意识到编写相等的语义，更快的版本只涉及很小的更改，则不应该错过这个机会。
 
-## Avoiding memory allocations
+并始终确保分析程序以了解其瓶颈是什么。对于分析来说，在 Mac OSX 上可以使用 XCode 的 [Instruments Time Profiler][ITP] 。在 Linux 上，任何可以分析 C/C++ 程序的程序，像 [perf][perf] 或 [Callgrind][Callgrind] ，应该有用。
 
-One of the best optimizations you can do in a program is avoiding extra/useless memory allocation. A memory allocation happens when you create an instance of a **class**, which ends up allocating heap memory. Creating an instance of a **struct** uses stack memory and doesn't incur a performance penalty. If you don't know the difference between stack and heap memory, be sure to [read this](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap).
+[ITP]: https://developer.apple.com/library/prerelease/content/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Instrument-TimeProfiler.html
+[perf]: https://perf.wiki.kernel.org/index.php/Main_Page
+[Callgrind]: http://valgrind.org/docs/manual/cl-manual.htm
 
-Allocating heap memory is slow, and it puts more pressure on the Garbage Collector (GC) as it will later have to free that memory.
+确保始终通过使用 `--release` 标志编译并运行程序来对程序进行分析，这开启优化。
 
-There are several ways to avoid heap memory allocations. The standard library is designed in a way to help you do that.
 
-### Don't create intermediate strings when writing to an IO
+## 避免内存分配 
 
-To print a number to the standard output you write:
+可以在程序中进行的最好优化之一是避免额外的或无用的内存分配。在创建一个**类**的实例时会发生内存分配，这最终会分配堆内存。创建**结构体**的实例会使用栈内存，且不会招致性能惩罚。如果你不清楚栈内存和堆内存的区别，请务必[阅读这个][read_this]。
+
+[read_this]: https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap
+
+分配堆内存很慢，并且它会给垃圾收集器（GC）带来更大的压力，因为它以后必须释放该内存。
+
+这里有几种可以避免堆内存分配的方法。设计的标准库可以帮助你实现它。
+
+### 在写 IO 时不要创建中间字符串
+
+要将数字打印到标准输出，可以编写：
 
 ```
 puts 123
 ```
 
-In many programming languages what will happen is that `to_s`, or a similar method for converting the object to its string representation, will be invoked, and then that string will be written to the standard output. This works, but it has a flaw: it creates an intermediate string, in heap memory, only to write it and then discard it. This, involves a heap memory allocation and gives a bit of work to the GC.
+在很多编程语言中，会发生 `to_s` 调用，或相似的方法来将这个对象转换成其字符串表示，随后该字符串将会被写到标准输出。这是可以的，但有个缺陷：其在堆内存上创建一个中间字符串，只写这个字符串然后丢弃。这样做，调用了堆内存分配然后为 GC 增加了些工作。
 
-In Crystal, `puts` will invoke `to_s(io)` on the object, passing it the IO to which the string representation should be written.
+在 Crystal 中 `puts` 会在对象上调用 `to_s(io)` ，将其传递给应该写入字符串表示的 IO。
 
-So, you should never do this:
+所以，你永远不要这样做：
 
 ```
 puts 123.to_s
 ```
 
-as it will create an intermediate string. Always append an object directly to an IO.
+因为它创建一个中间字符串。总是将对象直接追加到 IO 上。
 
-When writing custom types, always be sure to override `to_s(io)`, not `to_s`, and avoid creating intermediate strings in that method. For example:
+在编写自定义类型时，请务必确保重载 `to_s(io)`，而不是  `to_s` ，并避免在该方法中创建中间字符串。例如：
 
 ```crystal
 class MyClass
@@ -65,9 +79,10 @@ class MyClass
 end
 ```
 
-This philosophy of appending to an IO instead of returning an intermediate string results in better performance than handling intermediate strings. You should use this strategy in your API definitions too.
+这种追加到 IO 而不是返回中间字符串的原则导致在性能上比处理中间字符串更好。你也应该在 API 定义中使用此策略。
 
-Let's compare the times:
+
+比较下时间：
 
 ```crystal
 # io_benchmark.cr
@@ -88,7 +103,7 @@ Benchmark.ips do |x|
 end
 ```
 
-Output:
+输出：
 
 ```
 $ crystal run --release io_benchmark.cr
@@ -96,30 +111,30 @@ without to_s  77.11M ( 12.97ns) (± 1.05%)       fastest
    with to_s  18.15M ( 55.09ns) (± 7.99%)  4.25× slower
 ```
 
-Always remember that it's not just the time that has improved: memory usage is also decreased.
+要记住，这不只是时间上的提升：内存用量也有所减少。
 
-### Use string interpolation instead of concatenation
+### 使用字符串插值而非串联
 
-Sometimes you need to work directly with strings built from combining string literals with other values. You shouldn't just concatenate these strings with `String#+(String)` but rather use [string interpolation](syntax_and_semantics/literals/string.html) which allows to embed expressions into a string literal: `"Hello, #{name}"` is better than `"Hello, " +  name.to_s`.
+有时需要将字符串和其他值直接构建字符串组合。不应该只使用 `String#+(String)` 来连接这些字符串，而应该使用[字符串插值](syntax_and_semantics/literals/string.html#interpolation)，它可以将表达式嵌入到字符串字面量中：`"Hello, #{name}"` 要比 `"Hello, " +  name.to_s` 更好。
 
-Interpolated strings are transformed by the compiler to append to a string IO so that it automatically avoids intermediate strings. The example above translates to: `(StringBuilder.new << "Hello, " << name).to_s`.
+编译器转换插值字符串并将其追加到一个字符串 IO 上，以便其自动避免中间字符串。上面的例子可以转换为：`(StringBuilder.new << "Hello, " << name).to_s` 。
 
-### Avoid IO allocation for string building
+### 避免为字符串构建分配 IO
 
-Prefer to use the dedicated `String.build` optimized for building strings, instead of creating an intermediate `IO::Memory` allocation.
+宁愿为构建字符串使用优化的专用 `String.build` ，而不要创建中间内存分配 `IO::Memory`。
 
 ```crystal
 require "benchmark"
 
-Benchmark.ips do |x|
-  x.report("String.build") do
+Benchmark.ips do |bm|
+  bm.report("String.build") do
     String.build do |io|
       99.times do
         io << "hello world"
       end
     end
   end
-  x.report("IO::Memory") do
+  bm.report("IO::Memory") do
     io = IO::Memory.new
     99.times do
       io << "hello world"
@@ -129,7 +144,7 @@ Benchmark.ips do |x|
 end
 ```
 
-Output:
+输出：
 
 ```
 $ crystal run --release str_benchmark.cr
@@ -138,9 +153,9 @@ String.build 597.57k (  1.67µs) (± 5.52%)       fastest
 ```
 
 
-### Avoid creating temporary objects over and over
+### 避免反复创建临时对象
 
-Consider this program:
+看下这个程序：
 
 ```crystal
 lines_with_language_reference = 0
@@ -152,11 +167,12 @@ end
 puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
 ```
 
-The above program works but has a big performance problem: on every iteration a new array is created for `["crystal", "ruby", "java"]`. Remember: an array literal is just syntax sugar for creating an instance of an array and adding some values to it, and this will happen over and over on each iteration.
+上面的程序可以运行但有很大的性能问题：每次迭代都会为 `["crystal", "ruby", "java"]` 创建一个新的数组。记住：数组常量只是创建一个数组实例并向其添加一些值的语法糖，并且这在每次迭代时反复发生。
 
 There are two ways to solve this:
+有两种解决办法：
 
-1. Use a tuple. If you use `{"crystal", "ruby", "java"}` in the above program it will work the same way, but since a tuple doesn't involve heap memory it will be faster, consume less memory, and give more chances for the compiler to optimize the program.
+1. 使用元组。如果在上面的程序中使用 `{"crystal", "ruby", "java"}` ，其会以相同的方式运行，但因为元组不涉及堆内存，其会更快且消耗更少的内存，并给予编译器更多优化该程序的机会。
 
   ```crystal
   lines_with_language_reference = 0
@@ -168,7 +184,7 @@ There are two ways to solve this:
   puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
   ```
 
-2. Move the array to a constant.
+2. 将数组定义为常量。
 
   ```crystal
   LANGS = ["crystal", "ruby", "java"]
@@ -182,17 +198,17 @@ There are two ways to solve this:
   puts "Lines that mention crystal, ruby or java: #{lines_with_language_reference}"
   ```
 
-Using tuples is the preferred way.
+使用元组是首选的方式。
 
-Explicit array literals in loops is one way to create temporary objects, but these can also be created via method calls. For example `Hash#keys` will return a new array with the keys each time it's invoked. Instead of doing that, you can use `Hash#each_key`, `Hash#has_key?` and other methods.
+在循环中明确的数组常量是创建临时对象的方式之一，但这也可以通过方法调用来创建。例如 每次 `Hash#keys` 调用时将会返回一个新数组。除了这样做，可以使用 `Hash#each_key` 、 Hash#has_key?` 以及其他方法。
 
-### Use structs when possible
+### 如果可能请使用结构体
 
-If you declare your type as a **struct** instead of a **class**, creating an instance of it will use stack memory, which is much cheaper than heap memory and doesn't put pressure on the GC.
+如果为类型声明为一个**结构体**而不是**类**，那么创建该类型的实例将会使用堆内存，这要比堆内存更廉价，并且不会为 GC 增加压力。
 
-You shouldn't always use a struct, though. Structs are passed by value, so if you pass one to a method and the method makes changes to it, the caller won't see those changes, so they can be bug-prone. The best thing to do is to only use structs with immutable objects, especially if they are small.
+也不要一直使用结构体。结构体是值传递的，所以将其传递给方法而方法修改了它，那么调用者将不会看到这些变化，所以这可能出错。最好的做法是只在可变对象上使用结构体，尤其它们都比较小时。
 
-For example:
+例如：
 
 ```crystal
 # class_vs_struct.cr
@@ -220,7 +236,7 @@ Benchmark.ips do |x|
 end
 ```
 
-Output:
+输出：
 
 ```
 $ crystal run --release class_vs_struct.cr
@@ -228,11 +244,11 @@ $ crystal run --release class_vs_struct.cr
 struct 430.82M (± 6.58%)       fastest
 ```
 
-## Iterating strings
+## 字符串迭代
 
-Strings in Crystal always contain UTF-8 encoded bytes. UTF-8 is a variable-length encoding: a character may be represented by several bytes, although characters in the ASCII range are always represented by a single byte. Because of this, indexing a string with `String#[]` is not an `O(1)` operation, as the bytes need to be decoded each time to find the character at the given position. There's an optimization that Crystal's `String` does here: if it knows all the characters in the string are ASCII, then `String#[]` can be implemented in `O(1)`. However, this isn't generally true.
+Crystal 中的字符串一直以 UTF-8 编码。UTF-8 是一个变长编码：一个字符可能由几个字节表示，尽管字符在 ASCII 范围中总是由单个字节表示。因为这，用 `String#[]` 索引字符串并非 `O(1)` 操作，因为字节每次需要解码来找到给定位置的字符。Crystal 的 `String` 在这里有一种优化：如果知道字符串中所有的字符都是 ASCII，那么 `String#[]` 可以在 `O(1)` 内实现。然而通常这并不对。
 
-For this reason, iterating a String in this way is not optimal, and in fact has a complexity of `O(n^2)`:
+由于这个原因，以这样的方法迭代字符串并不是最佳的，实际上是 `O(n^2)` 的复杂度：
 
 ```crystal
 string = ...
@@ -242,9 +258,9 @@ while i < string.size
 end
 ```
 
-There's a second problem with the above: computing the `size` of a String is also slow, because it's not simply the number of bytes in the string (the `bytesize`). However, once a String's size has been computed, it is cached.
+上面的程序有第二个问题：计算字符串的 `大小` 也很慢，因为其并不是简单的字符串中的字节数（`bytesize`）。然而，一旦字符串的大小被计算出，它便被缓存了。
 
-The way to improve performance in this case is to either use one of the iteration methods (`each_char`, `each_byte`, `each_codepoint`), or use the more low-level `Char::Reader` struct. For example, using `each_char`:
+在这个案例中提升性能的方式是或使用迭代方法 (`each_char`，`each_byte`，`each_codepoint`) 之一，或使用更低级的 `Char::Reader` 结构体。例如，使用 `each_char` ：
 
 ```crystal
 string = ...
