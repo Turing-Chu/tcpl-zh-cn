@@ -8,7 +8,7 @@
    * [在 Gentoo Linux 系统上安装](installation/on_gentoo_linux.md)
    * [在 Mac OSX 上使用 Homebrew 安装](installation/on_mac_osx_using_homebrew.md)
    * [在 Linux 上使用 Linuxbrew 安装](installation/on_linux_using_linuxbrew.md)
-   * [On Bash on Ubuntu on Windows](installation/on_bash_on_ubuntu_on_windows.md)
+   * [在 Windows 的子系统 Linux 上安装](installation/on_bash_on_ubuntu_on_windows.md)
    * [从 tar.gz 文件中安装](installation/from_a_targz.md)
    * [源码编译](installation/from_source_repository.md)
 * [使用编译器](using_the_compiler/README.md)
