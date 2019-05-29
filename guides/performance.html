@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>性能 - Crystal 编程语言（中文版）</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="README.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="installation/README.html"><strong aria-hidden="true">2.</strong> 安装</a></li><li><ol class="section"><li><a href="installation/on_debian_and_ubuntu.html"><strong aria-hidden="true">2.1.</strong> 在 Debian 和 Ubuntu 系统上安装</a></li><li><a href="installation/on_redhat_and_centos.html"><strong aria-hidden="true">2.2.</strong> 在 RedHat 和 CentOS 系统上安装</a></li><li><a href="installation/on_arch_linux.html"><strong aria-hidden="true">2.3.</strong> 在 Arch Linux 系统上安装</a></li><li><a href="installation/on_gentoo_linux.html"><strong aria-hidden="true">2.4.</strong> 在 Gentoo Linux 系统上安装</a></li><li><a href="installation/on_mac_osx_using_homebrew.html"><strong aria-hidden="true">2.5.</strong> 在 Mac OSX 上使用 Homebrew 安装</a></li><li><a href="installation/on_linux_using_linuxbrew.html"><strong aria-hidden="true">2.6.</strong> 在 Linux 上使用 Linuxbrew 安装</a></li><li><a href="installation/on_bash_on_ubuntu_on_windows.html"><strong aria-hidden="true">2.7.</strong> 在 Windows 的子系统 Linux 上安装</a></li><li><a href="installation/from_a_targz.html"><strong aria-hidden="true">2.8.</strong> 从 tar.gz 文件中安装</a></li><li><a href="installation/from_source_repository.html"><strong aria-hidden="true">2.9.</strong> 源码编译</a></li></ol></li><li><a href="using_the_compiler/README.html"><strong aria-hidden="true">3.</strong> 使用编译器</a></li><li><a href="overview/README.html"><strong aria-hidden="true">4.</strong> 概览与示例</a></li><li><ol class="section"><li><a href="overview/hello_world.html"><strong aria-hidden="true">4.1.</strong> Hello World!</a></li><li><a href="overview/http_server.html"><strong aria-hidden="true">4.2.</strong> HTTP 服务器</a></li></ol></li><li><a href="syntax_and_semantics/README.html"><strong aria-hidden="true">5.</strong> 语法和语义</a></li><li><ol class="section"><li><a href="syntax_and_semantics/comments.html"><strong aria-hidden="true">5.1.</strong> 注释</a></li><li><a href="syntax_and_semantics/literals.html"><strong aria-hidden="true">5.2.</strong> 常量</a></li><li><ol class="section"><li><a href="syntax_and_semantics/literals/nil.html"><strong aria-hidden="true">5.2.1.</strong> 空值(Nil)</a></li><li><a href="syntax_and_semantics/literals/bool.html"><strong aria-hidden="true">5.2.2.</strong> Bool值(Bool)</a></li><li><a href="syntax_and_semantics/literals/integers.html"><strong aria-hidden="true">5.2.3.</strong> 整数(Integers)</a></li><li><a href="syntax_and_semantics/literals/floats.html"><strong aria-hidden="true">5.2.4.</strong> 浮点数(Floats)</a></li><li><a href="syntax_and_semantics/literals/char.html"><strong aria-hidden="true">5.2.5.</strong> 字符(Char)</a></li><li><a href="syntax_and_semantics/literals/string.html"><strong aria-hidden="true">5.2.6.</strong> 字符串(String)</a></li><li><a href="syntax_and_semantics/literals/symbol.html"><strong aria-hidden="true">5.2.7.</strong> 符号(Symbol)</a></li><li><a href="syntax_and_semantics/literals/array.html"><strong aria-hidden="true">5.2.8.</strong> 数组(Array)</a></li><li><a href="syntax_and_semantics/literals/hash.html"><strong aria-hidden="true">5.2.9.</strong> 哈希(Hash)</a></li><li><a href="syntax_and_semantics/literals/range.html"><strong aria-hidden="true">5.2.10.</strong> 范围(Range)</a></li><li><a href="syntax_and_semantics/literals/regex.html"><strong aria-hidden="true">5.2.11.</strong> 正则(Regex)</a></li><li><a href="syntax_and_semantics/literals/tuple.html"><strong aria-hidden="true">5.2.12.</strong> 元组(Tuple)</a></li><li><a href="syntax_and_semantics/literals/named_tuple.html"><strong aria-hidden="true">5.2.13.</strong> 具名元组(NamedTuple)</a></li><li><a href="syntax_and_semantics/literals/proc.html"><strong aria-hidden="true">5.2.14.</strong> 过程(Proc)</a></li></ol></li><li><a href="syntax_and_semantics/assignment.html"><strong aria-hidden="true">5.3.</strong> 赋值</a></li><li><ol class="section"><li><a href="syntax_and_semantics/multiple_assignment.html"><strong aria-hidden="true">5.3.1.</strong> Multiple assignment</a></li></ol></li><li><a href="syntax_and_semantics/local_variables.html"><strong aria-hidden="true">5.4.</strong> 局部变量</a></li><li><a href="syntax_and_semantics/control_expressions.html"><strong aria-hidden="true">5.5.</strong> 控制表达式</a></li><li><ol class="section"><li><a href="syntax_and_semantics/truthy_and_falsey_values.html"><strong aria-hidden="true">5.5.1.</strong> 真假值</a></li><li><a href="syntax_and_semantics/if.html"><strong aria-hidden="true">5.5.2.</strong> if</a></li><li><ol class="section"><li><a href="syntax_and_semantics/as_a_suffix.html"><strong aria-hidden="true">5.5.2.1.</strong> 用作后缀</a></li><li><a href="syntax_and_semantics/as_an_expression.html"><strong aria-hidden="true">5.5.2.2.</strong> 用作表达式</a></li><li><a href="syntax_and_semantics/ternary_if.html"><strong aria-hidden="true">5.5.2.3.</strong> 三元 if</a></li><li><a href="syntax_and_semantics/if_var.html"><strong aria-hidden="true">5.5.2.4.</strong> if var</a></li><li><a href="syntax_and_semantics/if_varis_a.html"><strong aria-hidden="true">5.5.2.5.</strong> if var.is_a?(...)</a></li><li><a href="syntax_and_semantics/if_varresponds_to.html"><strong aria-hidden="true">5.5.2.6.</strong> if var.responds_to?(...)</a></li><li><a href="syntax_and_semantics/if_var_nil.html"><strong aria-hidden="true">5.5.2.7.</strong> if var.nil?</a></li><li><a href="syntax_and_semantics/not.html"><strong aria-hidden="true">5.5.2.8.</strong> if !</a></li></ol></li><li><a href="syntax_and_semantics/unless.html"><strong aria-hidden="true">5.5.3.</strong> 无限循环</a></li><li><a href="syntax_and_semantics/case.html"><strong aria-hidden="true">5.5.4.</strong> case 语句</a></li><li><a href="syntax_and_semantics/while.html"><strong aria-hidden="true">5.5.5.</strong> while 语句</a></li><li><ol class="section"><li><a href="syntax_and_semantics/break.html"><strong aria-hidden="true">5.5.5.1.</strong> break 语句</a></li><li><a href="syntax_and_semantics/next.html"><strong aria-hidden="true">5.5.5.2.</strong> next 语句</a></li></ol></li><li><a href="syntax_and_semantics/until.html"><strong aria-hidden="true">5.5.6.</strong> until 语句</a></li><li><a href="syntax_and_semantics/and.html"><strong aria-hidden="true">5.5.7.</strong> &amp;&amp;</a></li><li><a href="syntax_and_semantics/or.html"><strong aria-hidden="true">5.5.8.</strong> ||</a></li></ol></li><li><a href="syntax_and_semantics/requiring_files.html"><strong aria-hidden="true">5.6.</strong> Requiring files</a></li><li><a href="syntax_and_semantics/types_and_methods.html"><strong aria-hidden="true">5.7.</strong> 类型和方法</a></li><li><ol class="section"><li><a href="syntax_and_semantics/everything_is_an_object.html"><strong aria-hidden="true">5.7.1.</strong> 任何事物都是对象</a></li><li><a href="syntax_and_semantics/the_program.html"><strong aria-hidden="true">5.7.2.</strong> The Program</a></li><li><a href="syntax_and_semantics/classes_and_methods.html"><strong aria-hidden="true">5.7.3.</strong> 类与方法</a></li><li><ol class="section"><li><a href="syntax_and_semantics/new,_initialize_and_allocate.html"><strong aria-hidden="true">5.7.3.1.</strong> 新建，初始化，内存分配</a></li><li><a href="syntax_and_semantics/methods_and_instance_variables.html"><strong aria-hidden="true">5.7.3.2.</strong> 方法与实例变量</a></li><li><a href="syntax_and_semantics/type_inference.html"><strong aria-hidden="true">5.7.3.3.</strong> 类型推断</a></li><li><a href="syntax_and_semantics/union_types.html"><strong aria-hidden="true">5.7.3.4.</strong> 联合体类型</a></li><li><a href="syntax_and_semantics/overloading.html"><strong aria-hidden="true">5.7.3.5.</strong> 重载</a></li><li><a href="syntax_and_semantics/default_and_named_arguments.html"><strong aria-hidden="true">5.7.3.6.</strong> 默认值与参数命名</a></li><li><a href="syntax_and_semantics/splats_and_tuples.html"><strong aria-hidden="true">5.7.3.7.</strong> Splats and tuples</a></li><li><a href="syntax_and_semantics/type_restrictions.html"><strong aria-hidden="true">5.7.3.8.</strong> 类型约束</a></li><li><a href="syntax_and_semantics/return_types.html"><strong aria-hidden="true">5.7.3.9.</strong> 返回值类型</a></li><li><a href="syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html"><strong aria-hidden="true">5.7.3.10.</strong> 方法的参数</a></li><li><a href="syntax_and_semantics/operators.html"><strong aria-hidden="true">5.7.3.11.</strong> 操作符</a></li><li><a href="syntax_and_semantics/visibility.html"><strong aria-hidden="true">5.7.3.12.</strong> 可视化</a></li><li><a href="syntax_and_semantics/inheritance.html"><strong aria-hidden="true">5.7.3.13.</strong> 继承</a></li><li><ol class="section"><li><a href="syntax_and_semantics/virtual_and_abstract_types.html"><strong aria-hidden="true">5.7.3.13.1.</strong> 虚拟类型和抽象类型</a></li></ol></li><li><a href="syntax_and_semantics/class_methods.html"><strong aria-hidden="true">5.7.3.14.</strong> 类方法</a></li><li><a href="syntax_and_semantics/class_variables.html"><strong aria-hidden="true">5.7.3.15.</strong> 类变量</a></li><li><a href="syntax_and_semantics/finalize.html"><strong aria-hidden="true">5.7.3.16.</strong> finalize</a></li></ol></li><li><a href="syntax_and_semantics/modules.html"><strong aria-hidden="true">5.7.4.</strong> 模块</a></li><li><a href="syntax_and_semantics/generics.html"><strong aria-hidden="true">5.7.5.</strong> 泛型</a></li><li><a href="syntax_and_semantics/structs.html"><strong aria-hidden="true">5.7.6.</strong> 结构体</a></li><li><a href="syntax_and_semantics/constants.html"><strong aria-hidden="true">5.7.7.</strong> 常量</a></li><li><a href="syntax_and_semantics/enum.html"><strong aria-hidden="true">5.7.8.</strong> 枚举</a></li><li><a href="syntax_and_semantics/blocks_and_procs.html"><strong aria-hidden="true">5.7.9.</strong> 块与过程</a></li><li><ol class="section"><li><a href="syntax_and_semantics/capturing_blocks.html"><strong aria-hidden="true">5.7.9.1.</strong> Capturing blocks</a></li><li><a href="syntax_and_semantics/proc_literal.html"><strong aria-hidden="true">5.7.9.2.</strong> Proc literal</a></li><li><a href="syntax_and_semantics/block_forwarding.html"><strong aria-hidden="true">5.7.9.3.</strong> Block forwarding</a></li><li><a href="syntax_and_semantics/closures.html"><strong aria-hidden="true">5.7.9.4.</strong> 闭包</a></li></ol></li><li><a href="syntax_and_semantics/alias.html"><strong aria-hidden="true">5.7.10.</strong> 别名</a></li></ol></li><li><a href="syntax_and_semantics/exception_handling.html"><strong aria-hidden="true">5.8.</strong> 异常处理</a></li><li><a href="syntax_and_semantics/type_grammar.html"><strong aria-hidden="true">5.9.</strong> 类型语法</a></li><li><a href="syntax_and_semantics/type_reflection.html"><strong aria-hidden="true">5.10.</strong> 类型反射</a></li><li><ol class="section"><li><a href="syntax_and_semantics/is_a.html"><strong aria-hidden="true">5.10.1.</strong> is_a?</a></li><li><a href="syntax_and_semantics/nil_question.html"><strong aria-hidden="true">5.10.2.</strong> nil?</a></li><li><a href="syntax_and_semantics/responds_to.html"><strong aria-hidden="true">5.10.3.</strong> responds_to?</a></li><li><a href="syntax_and_semantics/as.html"><strong aria-hidden="true">5.10.4.</strong> as</a></li><li><a href="syntax_and_semantics/as_question.html"><strong aria-hidden="true">5.10.5.</strong> as?</a></li><li><a href="syntax_and_semantics/typeof.html"><strong aria-hidden="true">5.10.6.</strong> typeof</a></li></ol></li><li><a href="syntax_and_semantics/macros.html"><strong aria-hidden="true">5.11.</strong> 宏</a></li><li><ol class="section"><li><a href="syntax_and_semantics/macros/macro_methods.html"><strong aria-hidden="true">5.11.1.</strong> 宏方法</a></li><li><a href="syntax_and_semantics/macros/hooks.html"><strong aria-hidden="true">5.11.2.</strong> 钩子</a></li><li><a href="syntax_and_semantics/macros/fresh_variables.html"><strong aria-hidden="true">5.11.3.</strong> Fresh variables</a></li></ol></li><li><a href="syntax_and_semantics/attributes.html"><strong aria-hidden="true">5.12.</strong> 属性</a></li><li><a href="syntax_and_semantics/low_level_primitives.html"><strong aria-hidden="true">5.13.</strong> Low-level primitives</a></li><li><ol class="section"><li><a href="syntax_and_semantics/pointerof.html"><strong aria-hidden="true">5.13.1.</strong> pointerof</a></li><li><a href="syntax_and_semantics/sizeof.html"><strong aria-hidden="true">5.13.2.</strong> sizeof</a></li><li><a href="syntax_and_semantics/instance_sizeof.html"><strong aria-hidden="true">5.13.3.</strong> instance_sizeof</a></li><li><a href="syntax_and_semantics/declare_var.html"><strong aria-hidden="true">5.13.4.</strong> 未初始化变量声明</a></li></ol></li><li><a href="syntax_and_semantics/compile_time_flags.html"><strong aria-hidden="true">5.14.</strong> Compile-time flags</a></li><li><ol class="section"><li><a href="syntax_and_semantics/cross-compilation.html"><strong aria-hidden="true">5.14.1.</strong> 交叉编译</a></li></ol></li><li><a href="syntax_and_semantics/c_bindings/README.html"><strong aria-hidden="true">5.15.</strong> C代码绑定</a></li><li><ol class="section"><li><a href="syntax_and_semantics/c_bindings/lib.html"><strong aria-hidden="true">5.15.1.</strong> 库</a></li><li><a href="syntax_and_semantics/c_bindings/fun.html"><strong aria-hidden="true">5.15.2.</strong> 函数</a></li><li><ol class="section"><li><a href="syntax_and_semantics/c_bindings/out.html"><strong aria-hidden="true">5.15.2.1.</strong> out</a></li><li><a href="syntax_and_semantics/c_bindings/to_unsafe.html"><strong aria-hidden="true">5.15.2.2.</strong> to_unsafe</a></li></ol></li><li><a href="syntax_and_semantics/c_bindings/struct.html"><strong aria-hidden="true">5.15.3.</strong> 结构体</a></li><li><a href="syntax_and_semantics/c_bindings/union.html"><strong aria-hidden="true">5.15.4.</strong> 联合体</a></li><li><a href="syntax_and_semantics/c_bindings/enum.html"><strong aria-hidden="true">5.15.5.</strong> 枚举</a></li><li><a href="syntax_and_semantics/c_bindings/variables.html"><strong aria-hidden="true">5.15.6.</strong> 变量</a></li><li><a href="syntax_and_semantics/c_bindings/constants.html"><strong aria-hidden="true">5.15.7.</strong> 常量</a></li><li><a href="syntax_and_semantics/c_bindings/type.html"><strong aria-hidden="true">5.15.8.</strong> 类型</a></li><li><a href="syntax_and_semantics/c_bindings/alias.html"><strong aria-hidden="true">5.15.9.</strong> 别名</a></li><li><a href="syntax_and_semantics/c_bindings/callbacks.html"><strong aria-hidden="true">5.15.10.</strong> 回调</a></li></ol></li><li><a href="syntax_and_semantics/unsafe.html"><strong aria-hidden="true">5.16.</strong> 不安全代码</a></li></ol></li><li><a href="conventions/README.html"><strong aria-hidden="true">6.</strong> 惯例</a></li><li><ol class="section"><li><a href="conventions/coding_style.html"><strong aria-hidden="true">6.1.</strong> 代码风格</a></li><li><a href="conventions/documenting_code.html"><strong aria-hidden="true">6.2.</strong> 文档化代码</a></li></ol></li><li><a href="database/README.html"><strong aria-hidden="true">7.</strong> 数据库</a></li><li><ol class="section"><li><a href="database/connection_pool.html"><strong aria-hidden="true">7.1.</strong> 连接池</a></li></ol></li><li><a href="guides/README.html"><strong aria-hidden="true">8.</strong> 指引</a></li><li><ol class="section"><li><a href="guides/performance.html" class="active"><strong aria-hidden="true">8.1.</strong> 性能</a></li><li><a href="guides/concurrency.html"><strong aria-hidden="true">8.2.</strong> 并发</a></li><li><a href="guides/testing.html"><strong aria-hidden="true">8.3.</strong> 测试</a></li><li><a href="guides/writing_shards.html"><strong aria-hidden="true">8.4.</strong> 编写 Shards</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Crystal 编程语言（中文版）</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="guides/performance.html#a性能" id="a性能"><h1>性能</h1></a>
+<blockquote>
+<p><a href="https://github.com/crystal-lang/crystal-book/blob/master/guides/performance.md">guides/performance.md</a></p>
+<p><a href="https://github.com/crystal-lang/crystal-book/commit/1513574a9de427281f7d9a9d44af499796f721b1">commit 1513574a9de427281f7d9a9d44af499796f721b1</a></p>
+</blockquote>
+<p>遵从这些提示来让程序在运行速度和内存上获得更好的输出。</p>
+<a class="header" href="guides/performance.html#a过早的优化" id="a过早的优化"><h2>过早的优化</h2></a>
+<p>Donald Knuth 曾经说过：</p>
+<blockquote>
+<p>我们应该忘记小的效率，既是 97% 的时间：过早优化是万恶之源。然而我们不应该放弃那至关重要的 3% 的机会。</p>
+</blockquote>
+<p>但是，如果你正在编写程序，并且意识到编写相等的语义，更快的版本只涉及很小的更改，则不应该错过这个机会。</p>
+<p>并始终确保分析程序以了解其瓶颈是什么。对于分析来说，在 Mac OSX 上可以使用 XCode 的 <a href="https://developer.apple.com/library/prerelease/content/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Instrument-TimeProfiler.html">Instruments Time Profiler</a> 。在 Linux 上，任何可以分析 C/C++ 程序的程序，像 <a href="https://perf.wiki.kernel.org/index.php/Main_Page">perf</a> 或 <a href="http://valgrind.org/docs/manual/cl-manual.htm">Callgrind</a> ，应该有用。</p>
+<p>确保始终通过使用 <code>--release</code> 标志编译并运行程序来对程序进行分析，这开启优化。</p>
+<a class="header" href="guides/performance.html#a避免内存分配" id="a避免内存分配"><h2>避免内存分配</h2></a>
+<p>可以在程序中进行的最好优化之一是避免额外的或无用的内存分配。在创建一个<strong>类</strong>的实例时会发生内存分配，这最终会分配堆内存。创建<strong>结构体</strong>的实例会使用栈内存，且不会招致性能惩罚。如果你不清楚栈内存和堆内存的区别，请务必<a href="https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap">阅读这个</a>。</p>
+<p>分配堆内存很慢，并且它会给垃圾收集器（GC）带来更大的压力，因为它以后必须释放该内存。</p>
+<p>这里有几种可以避免堆内存分配的方法。设计的标准库可以帮助你实现它。</p>
+<a class="header" href="guides/performance.html#a在写-io-时不要创建中间字符串" id="a在写-io-时不要创建中间字符串"><h3>在写 IO 时不要创建中间字符串</h3></a>
+<p>要将数字打印到标准输出，可以编写：</p>
+<pre><code>puts 123
+</code></pre>
+<p>在很多编程语言中，会发生 <code>to_s</code> 调用，或相似的方法来将这个对象转换成其字符串表示，随后该字符串将会被写到标准输出。这是可以的，但有个缺陷：其在堆内存上创建一个中间字符串，只写这个字符串然后丢弃。这样做，调用了堆内存分配然后为 GC 增加了些工作。</p>
+<p>在 Crystal 中 <code>puts</code> 会在对象上调用 <code>to_s(io)</code> ，将其传递给应该写入字符串表示的 IO。</p>
+<p>所以，你永远不要这样做：</p>
+<pre><code>puts 123.to_s
+</code></pre>
+<p>因为它创建一个中间字符串。总是将对象直接追加到 IO 上。</p>
+<p>在编写自定义类型时，请务必确保重载 <code>to_s(io)</code>，而不是  <code>to_s</code> ，并避免在该方法中创建中间字符串。例如：</p>
+<pre><code class="language-crystal">class MyClass
+  # Good
+  def to_s(io)
+    # appends &quot;1, 2&quot; to IO without creating intermediate strings
+    x = 1
+    y = 2
+    io &lt;&lt; x &lt;&lt; &quot;, &quot; &lt;&lt; y
+  end
+
+  # Bad
+  def to_s(io)
+    x = 1
+    y = 2
+    # using a string interpolation creates an intermediate string.
+    # this should be avoided
+    io &lt;&lt; &quot;#{x}, #{y}&quot;
+  end
+end
+</code></pre>
+<p>这种追加到 IO 而不是返回中间字符串的原则导致在性能上比处理中间字符串更好。你也应该在 API 定义中使用此策略。</p>
+<p>比较下时间：</p>
+<pre><code class="language-crystal"># io_benchmark.cr
+require &quot;benchmark&quot;
+
+io = IO::Memory.new
+
+Benchmark.ips do |x|
+  x.report(&quot;without to_s&quot;) do
+    io &lt;&lt; 123
+    io.clear
+  end
+
+  x.report(&quot;with to_s&quot;) do
+    io &lt;&lt; 123.to_s
+    io.clear
+  end
+end
+</code></pre>
+<p>输出：</p>
+<pre><code>$ crystal run --release io_benchmark.cr
+without to_s  77.11M ( 12.97ns) (± 1.05%)       fastest
+   with to_s  18.15M ( 55.09ns) (± 7.99%)  4.25× slower
+</code></pre>
+<p>要记住，这不只是时间上的提升：内存用量也有所减少。</p>
+<a class="header" href="guides/performance.html#a使用字符串插值而非串联" id="a使用字符串插值而非串联"><h3>使用字符串插值而非串联</h3></a>
+<p>有时需要将字符串和其他值直接构建字符串组合。不应该只使用 <code>String#+(String)</code> 来连接这些字符串，而应该使用<a href="syntax_and_semantics/literals/string.html#interpolation">字符串插值</a>，它可以将表达式嵌入到字符串字面量中：<code>&quot;Hello, #{name}&quot;</code> 要比 <code>&quot;Hello, &quot; + name.to_s</code> 更好。</p>
+<p>编译器转换插值字符串并将其追加到一个字符串 IO 上，以便其自动避免中间字符串。上面的例子可以转换为：<code>(StringBuilder.new &lt;&lt; &quot;Hello, &quot; &lt;&lt; name).to_s</code> 。</p>
+<a class="header" href="guides/performance.html#a避免为字符串构建分配-io" id="a避免为字符串构建分配-io"><h3>避免为字符串构建分配 IO</h3></a>
+<p>宁愿为构建字符串使用优化的专用 <code>String.build</code> ，而不要创建中间内存分配 <code>IO::Memory</code>。</p>
+<pre><code class="language-crystal">require &quot;benchmark&quot;
+
+Benchmark.ips do |bm|
+  bm.report(&quot;String.build&quot;) do
+    String.build do |io|
+      99.times do
+        io &lt;&lt; &quot;hello world&quot;
+      end
+    end
+  end
+  bm.report(&quot;IO::Memory&quot;) do
+    io = IO::Memory.new
+    99.times do
+      io &lt;&lt; &quot;hello world&quot;
+    end
+    io.to_s
+  end
+end
+</code></pre>
+<p>输出：</p>
+<pre><code>$ crystal run --release str_benchmark.cr
+String.build 597.57k (  1.67µs) (± 5.52%)       fastest
+  IO::Memory 423.82k (  2.36µs) (± 3.76%)  1.41× slower
+</code></pre>
+<a class="header" href="guides/performance.html#a避免反复创建临时对象" id="a避免反复创建临时对象"><h3>避免反复创建临时对象</h3></a>
+<p>看下这个程序：</p>
+<pre><code class="language-crystal">lines_with_language_reference = 0
+while line = gets
+  if [&quot;crystal&quot;, &quot;ruby&quot;, &quot;java&quot;].any? { |string| line.includes?(string) }
+    lines_with_language_reference += 1
+  end
+end
+puts &quot;Lines that mention crystal, ruby or java: #{lines_with_language_reference}&quot;
+</code></pre>
+<p>上面的程序可以运行但有很大的性能问题：每次迭代都会为 <code>[&quot;crystal&quot;, &quot;ruby&quot;, &quot;java&quot;]</code> 创建一个新的数组。记住：数组常量只是创建一个数组实例并向其添加一些值的语法糖，并且这在每次迭代时反复发生。</p>
+<p>There are two ways to solve this:
+有两种解决办法：</p>
+<ol>
+<li>使用元组。如果在上面的程序中使用 <code>{&quot;crystal&quot;, &quot;ruby&quot;, &quot;java&quot;}</code> ，其会以相同的方式运行，但因为元组不涉及堆内存，其会更快且消耗更少的内存，并给予编译器更多优化该程序的机会。</li>
+</ol>
+<pre><code class="language-crystal">lines_with_language_reference = 0
+while line = gets
+  if {&quot;crystal&quot;, &quot;ruby&quot;, &quot;java&quot;}.any? { |string| line.includes?(string) }
+    lines_with_language_reference += 1
+  end
+end
+puts &quot;Lines that mention crystal, ruby or java: #{lines_with_language_reference}&quot;
+</code></pre>
+<ol start="2">
+<li>将数组定义为常量。</li>
+</ol>
+<pre><code class="language-crystal">LANGS = [&quot;crystal&quot;, &quot;ruby&quot;, &quot;java&quot;]
+
+lines_with_language_reference = 0
+while line = gets
+  if LANGS.any? { |string| line.includes?(string) }
+    lines_with_language_reference += 1
+  end
+end
+puts &quot;Lines that mention crystal, ruby or java: #{lines_with_language_reference}&quot;
+</code></pre>
+<p>使用元组是首选的方式。</p>
+<p>在循环中明确的数组常量是创建临时对象的方式之一，但这也可以通过方法调用来创建。例如 每次 <code>Hash#keys</code> 调用时将会返回一个新数组。除了这样做，可以使用 <code>Hash#each_key</code> 、 Hash#has_key?` 以及其他方法。</p>
+<a class="header" href="guides/performance.html#a如果可能请使用结构体" id="a如果可能请使用结构体"><h3>如果可能请使用结构体</h3></a>
+<p>如果为类型声明为一个<strong>结构体</strong>而不是<strong>类</strong>，那么创建该类型的实例将会使用堆内存，这要比堆内存更廉价，并且不会为 GC 增加压力。</p>
+<p>也不要一直使用结构体。结构体是值传递的，所以将其传递给方法而方法修改了它，那么调用者将不会看到这些变化，所以这可能出错。最好的做法是只在可变对象上使用结构体，尤其它们都比较小时。</p>
+<p>例如：</p>
+<pre><code class="language-crystal"># class_vs_struct.cr
+require &quot;benchmark&quot;
+
+class PointClass
+  getter x
+  getter y
+
+  def initialize(@x : Int32, @y : Int32)
+  end
+end
+
+struct PointStruct
+  getter x
+  getter y
+
+  def initialize(@x : Int32, @y : Int32)
+  end
+end
+
+Benchmark.ips do |x|
+  x.report(&quot;class&quot;) { PointClass.new(1, 2) }
+  x.report(&quot;struct&quot;) { PointStruct.new(1, 2) }
+end
+</code></pre>
+<p>输出：</p>
+<pre><code>$ crystal run --release class_vs_struct.cr
+ class  28.17M (± 2.86%) 15.29× slower
+struct 430.82M (± 6.58%)       fastest
+</code></pre>
+<a class="header" href="guides/performance.html#a字符串迭代" id="a字符串迭代"><h2>字符串迭代</h2></a>
+<p>Crystal 中的字符串一直以 UTF-8 编码。UTF-8 是一个变长编码：一个字符可能由几个字节表示，尽管字符在 ASCII 范围中总是由单个字节表示。因为这，用 <code>String#[]</code> 索引字符串并非 <code>O(1)</code> 操作，因为字节每次需要解码来找到给定位置的字符。Crystal 的 <code>String</code> 在这里有一种优化：如果知道字符串中所有的字符都是 ASCII，那么 <code>String#[]</code> 可以在 <code>O(1)</code> 内实现。然而通常这并不对。</p>
+<p>由于这个原因，以这样的方法迭代字符串并不是最佳的，实际上是 <code>O(n^2)</code> 的复杂度：</p>
+<pre><code class="language-crystal">string = ...
+while i &lt; string.size
+  char = string[i]
+  # ...
+end
+</code></pre>
+<p>上面的程序有第二个问题：计算字符串的 <code>大小</code> 也很慢，因为其并不是简单的字符串中的字节数（<code>bytesize</code>）。然而，一旦字符串的大小被计算出，它便被缓存了。</p>
+<p>在这个案例中提升性能的方式是或使用迭代方法 (<code>each_char</code>，<code>each_byte</code>，<code>each_codepoint</code>) 之一，或使用更低级的 <code>Char::Reader</code> 结构体。例如，使用 <code>each_char</code> ：</p>
+<pre><code class="language-crystal">string = ...
+string.each_char do |char|
+  # ...
+end
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="guides/README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="guides/concurrency.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="guides/README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="guides/concurrency.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>

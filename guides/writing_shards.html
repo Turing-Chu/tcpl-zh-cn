@@ -1,0 +1,408 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>编写 Shards - Crystal 编程语言（中文版）</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="_FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="README.html"><strong aria-hidden="true">1.</strong> 介绍</a></li><li><a href="installation/README.html"><strong aria-hidden="true">2.</strong> 安装</a></li><li><ol class="section"><li><a href="installation/on_debian_and_ubuntu.html"><strong aria-hidden="true">2.1.</strong> 在 Debian 和 Ubuntu 系统上安装</a></li><li><a href="installation/on_redhat_and_centos.html"><strong aria-hidden="true">2.2.</strong> 在 RedHat 和 CentOS 系统上安装</a></li><li><a href="installation/on_arch_linux.html"><strong aria-hidden="true">2.3.</strong> 在 Arch Linux 系统上安装</a></li><li><a href="installation/on_gentoo_linux.html"><strong aria-hidden="true">2.4.</strong> 在 Gentoo Linux 系统上安装</a></li><li><a href="installation/on_mac_osx_using_homebrew.html"><strong aria-hidden="true">2.5.</strong> 在 Mac OSX 上使用 Homebrew 安装</a></li><li><a href="installation/on_linux_using_linuxbrew.html"><strong aria-hidden="true">2.6.</strong> 在 Linux 上使用 Linuxbrew 安装</a></li><li><a href="installation/on_bash_on_ubuntu_on_windows.html"><strong aria-hidden="true">2.7.</strong> 在 Windows 的子系统 Linux 上安装</a></li><li><a href="installation/from_a_targz.html"><strong aria-hidden="true">2.8.</strong> 从 tar.gz 文件中安装</a></li><li><a href="installation/from_source_repository.html"><strong aria-hidden="true">2.9.</strong> 源码编译</a></li></ol></li><li><a href="using_the_compiler/README.html"><strong aria-hidden="true">3.</strong> 使用编译器</a></li><li><a href="overview/README.html"><strong aria-hidden="true">4.</strong> 概览与示例</a></li><li><ol class="section"><li><a href="overview/hello_world.html"><strong aria-hidden="true">4.1.</strong> Hello World!</a></li><li><a href="overview/http_server.html"><strong aria-hidden="true">4.2.</strong> HTTP 服务器</a></li></ol></li><li><a href="syntax_and_semantics/README.html"><strong aria-hidden="true">5.</strong> 语法和语义</a></li><li><ol class="section"><li><a href="syntax_and_semantics/comments.html"><strong aria-hidden="true">5.1.</strong> 注释</a></li><li><a href="syntax_and_semantics/literals.html"><strong aria-hidden="true">5.2.</strong> 常量</a></li><li><ol class="section"><li><a href="syntax_and_semantics/literals/nil.html"><strong aria-hidden="true">5.2.1.</strong> 空值(Nil)</a></li><li><a href="syntax_and_semantics/literals/bool.html"><strong aria-hidden="true">5.2.2.</strong> Bool值(Bool)</a></li><li><a href="syntax_and_semantics/literals/integers.html"><strong aria-hidden="true">5.2.3.</strong> 整数(Integers)</a></li><li><a href="syntax_and_semantics/literals/floats.html"><strong aria-hidden="true">5.2.4.</strong> 浮点数(Floats)</a></li><li><a href="syntax_and_semantics/literals/char.html"><strong aria-hidden="true">5.2.5.</strong> 字符(Char)</a></li><li><a href="syntax_and_semantics/literals/string.html"><strong aria-hidden="true">5.2.6.</strong> 字符串(String)</a></li><li><a href="syntax_and_semantics/literals/symbol.html"><strong aria-hidden="true">5.2.7.</strong> 符号(Symbol)</a></li><li><a href="syntax_and_semantics/literals/array.html"><strong aria-hidden="true">5.2.8.</strong> 数组(Array)</a></li><li><a href="syntax_and_semantics/literals/hash.html"><strong aria-hidden="true">5.2.9.</strong> 哈希(Hash)</a></li><li><a href="syntax_and_semantics/literals/range.html"><strong aria-hidden="true">5.2.10.</strong> 范围(Range)</a></li><li><a href="syntax_and_semantics/literals/regex.html"><strong aria-hidden="true">5.2.11.</strong> 正则(Regex)</a></li><li><a href="syntax_and_semantics/literals/tuple.html"><strong aria-hidden="true">5.2.12.</strong> 元组(Tuple)</a></li><li><a href="syntax_and_semantics/literals/named_tuple.html"><strong aria-hidden="true">5.2.13.</strong> 具名元组(NamedTuple)</a></li><li><a href="syntax_and_semantics/literals/proc.html"><strong aria-hidden="true">5.2.14.</strong> 过程(Proc)</a></li></ol></li><li><a href="syntax_and_semantics/assignment.html"><strong aria-hidden="true">5.3.</strong> 赋值</a></li><li><ol class="section"><li><a href="syntax_and_semantics/multiple_assignment.html"><strong aria-hidden="true">5.3.1.</strong> Multiple assignment</a></li></ol></li><li><a href="syntax_and_semantics/local_variables.html"><strong aria-hidden="true">5.4.</strong> 局部变量</a></li><li><a href="syntax_and_semantics/control_expressions.html"><strong aria-hidden="true">5.5.</strong> 控制表达式</a></li><li><ol class="section"><li><a href="syntax_and_semantics/truthy_and_falsey_values.html"><strong aria-hidden="true">5.5.1.</strong> 真假值</a></li><li><a href="syntax_and_semantics/if.html"><strong aria-hidden="true">5.5.2.</strong> if</a></li><li><ol class="section"><li><a href="syntax_and_semantics/as_a_suffix.html"><strong aria-hidden="true">5.5.2.1.</strong> 用作后缀</a></li><li><a href="syntax_and_semantics/as_an_expression.html"><strong aria-hidden="true">5.5.2.2.</strong> 用作表达式</a></li><li><a href="syntax_and_semantics/ternary_if.html"><strong aria-hidden="true">5.5.2.3.</strong> 三元 if</a></li><li><a href="syntax_and_semantics/if_var.html"><strong aria-hidden="true">5.5.2.4.</strong> if var</a></li><li><a href="syntax_and_semantics/if_varis_a.html"><strong aria-hidden="true">5.5.2.5.</strong> if var.is_a?(...)</a></li><li><a href="syntax_and_semantics/if_varresponds_to.html"><strong aria-hidden="true">5.5.2.6.</strong> if var.responds_to?(...)</a></li><li><a href="syntax_and_semantics/if_var_nil.html"><strong aria-hidden="true">5.5.2.7.</strong> if var.nil?</a></li><li><a href="syntax_and_semantics/not.html"><strong aria-hidden="true">5.5.2.8.</strong> if !</a></li></ol></li><li><a href="syntax_and_semantics/unless.html"><strong aria-hidden="true">5.5.3.</strong> 无限循环</a></li><li><a href="syntax_and_semantics/case.html"><strong aria-hidden="true">5.5.4.</strong> case 语句</a></li><li><a href="syntax_and_semantics/while.html"><strong aria-hidden="true">5.5.5.</strong> while 语句</a></li><li><ol class="section"><li><a href="syntax_and_semantics/break.html"><strong aria-hidden="true">5.5.5.1.</strong> break 语句</a></li><li><a href="syntax_and_semantics/next.html"><strong aria-hidden="true">5.5.5.2.</strong> next 语句</a></li></ol></li><li><a href="syntax_and_semantics/until.html"><strong aria-hidden="true">5.5.6.</strong> until 语句</a></li><li><a href="syntax_and_semantics/and.html"><strong aria-hidden="true">5.5.7.</strong> &amp;&amp;</a></li><li><a href="syntax_and_semantics/or.html"><strong aria-hidden="true">5.5.8.</strong> ||</a></li></ol></li><li><a href="syntax_and_semantics/requiring_files.html"><strong aria-hidden="true">5.6.</strong> Requiring files</a></li><li><a href="syntax_and_semantics/types_and_methods.html"><strong aria-hidden="true">5.7.</strong> 类型和方法</a></li><li><ol class="section"><li><a href="syntax_and_semantics/everything_is_an_object.html"><strong aria-hidden="true">5.7.1.</strong> 任何事物都是对象</a></li><li><a href="syntax_and_semantics/the_program.html"><strong aria-hidden="true">5.7.2.</strong> The Program</a></li><li><a href="syntax_and_semantics/classes_and_methods.html"><strong aria-hidden="true">5.7.3.</strong> 类与方法</a></li><li><ol class="section"><li><a href="syntax_and_semantics/new,_initialize_and_allocate.html"><strong aria-hidden="true">5.7.3.1.</strong> 新建，初始化，内存分配</a></li><li><a href="syntax_and_semantics/methods_and_instance_variables.html"><strong aria-hidden="true">5.7.3.2.</strong> 方法与实例变量</a></li><li><a href="syntax_and_semantics/type_inference.html"><strong aria-hidden="true">5.7.3.3.</strong> 类型推断</a></li><li><a href="syntax_and_semantics/union_types.html"><strong aria-hidden="true">5.7.3.4.</strong> 联合体类型</a></li><li><a href="syntax_and_semantics/overloading.html"><strong aria-hidden="true">5.7.3.5.</strong> 重载</a></li><li><a href="syntax_and_semantics/default_and_named_arguments.html"><strong aria-hidden="true">5.7.3.6.</strong> 默认值与参数命名</a></li><li><a href="syntax_and_semantics/splats_and_tuples.html"><strong aria-hidden="true">5.7.3.7.</strong> Splats and tuples</a></li><li><a href="syntax_and_semantics/type_restrictions.html"><strong aria-hidden="true">5.7.3.8.</strong> 类型约束</a></li><li><a href="syntax_and_semantics/return_types.html"><strong aria-hidden="true">5.7.3.9.</strong> 返回值类型</a></li><li><a href="syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html"><strong aria-hidden="true">5.7.3.10.</strong> 方法的参数</a></li><li><a href="syntax_and_semantics/operators.html"><strong aria-hidden="true">5.7.3.11.</strong> 操作符</a></li><li><a href="syntax_and_semantics/visibility.html"><strong aria-hidden="true">5.7.3.12.</strong> 可视化</a></li><li><a href="syntax_and_semantics/inheritance.html"><strong aria-hidden="true">5.7.3.13.</strong> 继承</a></li><li><ol class="section"><li><a href="syntax_and_semantics/virtual_and_abstract_types.html"><strong aria-hidden="true">5.7.3.13.1.</strong> 虚拟类型和抽象类型</a></li></ol></li><li><a href="syntax_and_semantics/class_methods.html"><strong aria-hidden="true">5.7.3.14.</strong> 类方法</a></li><li><a href="syntax_and_semantics/class_variables.html"><strong aria-hidden="true">5.7.3.15.</strong> 类变量</a></li><li><a href="syntax_and_semantics/finalize.html"><strong aria-hidden="true">5.7.3.16.</strong> finalize</a></li></ol></li><li><a href="syntax_and_semantics/modules.html"><strong aria-hidden="true">5.7.4.</strong> 模块</a></li><li><a href="syntax_and_semantics/generics.html"><strong aria-hidden="true">5.7.5.</strong> 泛型</a></li><li><a href="syntax_and_semantics/structs.html"><strong aria-hidden="true">5.7.6.</strong> 结构体</a></li><li><a href="syntax_and_semantics/constants.html"><strong aria-hidden="true">5.7.7.</strong> 常量</a></li><li><a href="syntax_and_semantics/enum.html"><strong aria-hidden="true">5.7.8.</strong> 枚举</a></li><li><a href="syntax_and_semantics/blocks_and_procs.html"><strong aria-hidden="true">5.7.9.</strong> 块与过程</a></li><li><ol class="section"><li><a href="syntax_and_semantics/capturing_blocks.html"><strong aria-hidden="true">5.7.9.1.</strong> Capturing blocks</a></li><li><a href="syntax_and_semantics/proc_literal.html"><strong aria-hidden="true">5.7.9.2.</strong> Proc literal</a></li><li><a href="syntax_and_semantics/block_forwarding.html"><strong aria-hidden="true">5.7.9.3.</strong> Block forwarding</a></li><li><a href="syntax_and_semantics/closures.html"><strong aria-hidden="true">5.7.9.4.</strong> 闭包</a></li></ol></li><li><a href="syntax_and_semantics/alias.html"><strong aria-hidden="true">5.7.10.</strong> 别名</a></li></ol></li><li><a href="syntax_and_semantics/exception_handling.html"><strong aria-hidden="true">5.8.</strong> 异常处理</a></li><li><a href="syntax_and_semantics/type_grammar.html"><strong aria-hidden="true">5.9.</strong> 类型语法</a></li><li><a href="syntax_and_semantics/type_reflection.html"><strong aria-hidden="true">5.10.</strong> 类型反射</a></li><li><ol class="section"><li><a href="syntax_and_semantics/is_a.html"><strong aria-hidden="true">5.10.1.</strong> is_a?</a></li><li><a href="syntax_and_semantics/nil_question.html"><strong aria-hidden="true">5.10.2.</strong> nil?</a></li><li><a href="syntax_and_semantics/responds_to.html"><strong aria-hidden="true">5.10.3.</strong> responds_to?</a></li><li><a href="syntax_and_semantics/as.html"><strong aria-hidden="true">5.10.4.</strong> as</a></li><li><a href="syntax_and_semantics/as_question.html"><strong aria-hidden="true">5.10.5.</strong> as?</a></li><li><a href="syntax_and_semantics/typeof.html"><strong aria-hidden="true">5.10.6.</strong> typeof</a></li></ol></li><li><a href="syntax_and_semantics/macros.html"><strong aria-hidden="true">5.11.</strong> 宏</a></li><li><ol class="section"><li><a href="syntax_and_semantics/macros/macro_methods.html"><strong aria-hidden="true">5.11.1.</strong> 宏方法</a></li><li><a href="syntax_and_semantics/macros/hooks.html"><strong aria-hidden="true">5.11.2.</strong> 钩子</a></li><li><a href="syntax_and_semantics/macros/fresh_variables.html"><strong aria-hidden="true">5.11.3.</strong> Fresh variables</a></li></ol></li><li><a href="syntax_and_semantics/attributes.html"><strong aria-hidden="true">5.12.</strong> 属性</a></li><li><a href="syntax_and_semantics/low_level_primitives.html"><strong aria-hidden="true">5.13.</strong> Low-level primitives</a></li><li><ol class="section"><li><a href="syntax_and_semantics/pointerof.html"><strong aria-hidden="true">5.13.1.</strong> pointerof</a></li><li><a href="syntax_and_semantics/sizeof.html"><strong aria-hidden="true">5.13.2.</strong> sizeof</a></li><li><a href="syntax_and_semantics/instance_sizeof.html"><strong aria-hidden="true">5.13.3.</strong> instance_sizeof</a></li><li><a href="syntax_and_semantics/declare_var.html"><strong aria-hidden="true">5.13.4.</strong> 未初始化变量声明</a></li></ol></li><li><a href="syntax_and_semantics/compile_time_flags.html"><strong aria-hidden="true">5.14.</strong> Compile-time flags</a></li><li><ol class="section"><li><a href="syntax_and_semantics/cross-compilation.html"><strong aria-hidden="true">5.14.1.</strong> 交叉编译</a></li></ol></li><li><a href="syntax_and_semantics/c_bindings/README.html"><strong aria-hidden="true">5.15.</strong> C代码绑定</a></li><li><ol class="section"><li><a href="syntax_and_semantics/c_bindings/lib.html"><strong aria-hidden="true">5.15.1.</strong> 库</a></li><li><a href="syntax_and_semantics/c_bindings/fun.html"><strong aria-hidden="true">5.15.2.</strong> 函数</a></li><li><ol class="section"><li><a href="syntax_and_semantics/c_bindings/out.html"><strong aria-hidden="true">5.15.2.1.</strong> out</a></li><li><a href="syntax_and_semantics/c_bindings/to_unsafe.html"><strong aria-hidden="true">5.15.2.2.</strong> to_unsafe</a></li></ol></li><li><a href="syntax_and_semantics/c_bindings/struct.html"><strong aria-hidden="true">5.15.3.</strong> 结构体</a></li><li><a href="syntax_and_semantics/c_bindings/union.html"><strong aria-hidden="true">5.15.4.</strong> 联合体</a></li><li><a href="syntax_and_semantics/c_bindings/enum.html"><strong aria-hidden="true">5.15.5.</strong> 枚举</a></li><li><a href="syntax_and_semantics/c_bindings/variables.html"><strong aria-hidden="true">5.15.6.</strong> 变量</a></li><li><a href="syntax_and_semantics/c_bindings/constants.html"><strong aria-hidden="true">5.15.7.</strong> 常量</a></li><li><a href="syntax_and_semantics/c_bindings/type.html"><strong aria-hidden="true">5.15.8.</strong> 类型</a></li><li><a href="syntax_and_semantics/c_bindings/alias.html"><strong aria-hidden="true">5.15.9.</strong> 别名</a></li><li><a href="syntax_and_semantics/c_bindings/callbacks.html"><strong aria-hidden="true">5.15.10.</strong> 回调</a></li></ol></li><li><a href="syntax_and_semantics/unsafe.html"><strong aria-hidden="true">5.16.</strong> 不安全代码</a></li></ol></li><li><a href="conventions/README.html"><strong aria-hidden="true">6.</strong> 惯例</a></li><li><ol class="section"><li><a href="conventions/coding_style.html"><strong aria-hidden="true">6.1.</strong> 代码风格</a></li><li><a href="conventions/documenting_code.html"><strong aria-hidden="true">6.2.</strong> 文档化代码</a></li></ol></li><li><a href="database/README.html"><strong aria-hidden="true">7.</strong> 数据库</a></li><li><ol class="section"><li><a href="database/connection_pool.html"><strong aria-hidden="true">7.1.</strong> 连接池</a></li></ol></li><li><a href="guides/README.html"><strong aria-hidden="true">8.</strong> 指引</a></li><li><ol class="section"><li><a href="guides/performance.html"><strong aria-hidden="true">8.1.</strong> 性能</a></li><li><a href="guides/concurrency.html"><strong aria-hidden="true">8.2.</strong> 并发</a></li><li><a href="guides/testing.html"><strong aria-hidden="true">8.3.</strong> 测试</a></li><li><a href="guides/writing_shards.html" class="active"><strong aria-hidden="true">8.4.</strong> 编写 Shards</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Crystal 编程语言（中文版）</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="guides/writing_shards.html#a编写-shard" id="a编写-shard"><h1>编写 Shard</h1></a>
+<p>如何编写以及发布 Shard 。</p>
+<a class="header" href="guides/writing_shards.html#a什么是-shard-" id="a什么是-shard-"><h2><em>什么是 Shard ？</em></h2></a>
+<p>简单来说，Shard 是指可以被共享或被其他项目使用的 Crystal 代码包。</p>
+<a class="header" href="guides/writing_shards.html#a简介" id="a简介"><h2>简介</h2></a>
+<p>本教程中，我们创建了一个名为 <em>palindrome-example</em> 的 Crystal 库。</p>
+<blockquote>
+<p>For those who don't know, a palindrome is a word which is spelled the same way forwards as it is backwards. e.g. racecar, mom, dad, kayak, madam</p>
+</blockquote>
+<a class="header" href="guides/writing_shards.html#a要求" id="a要求"><h3>要求</h3></a>
+<p>为了发布 Crystal Shard ，并渐渐理解教程，你需要下列各项：</p>
+<ul>
+<li>一个可运行的 <a href="../using_the_compiler/README.md">Crystal 编译器</a> 安装</li>
+<li>一个可运行的 <a href="https://git-scm.com">Git</a> 安装</li>
+<li>一个 <a href="https://github.com">GitHub</a> 账号</li>
+</ul>
+<a class="header" href="guides/writing_shards.html#a创建项目" id="a创建项目"><h3>创建项目</h3></a>
+<p>首先，以 <a href="../using_the_compiler/README.md">Crystal 编译器</a>的 <code>init lib</code> 命令来创建一个具有标准目录结构的 Crystal 库。</p>
+<p>在终端中：<code>crystal init lib &lt;YOUR-SHARD-NAME&gt;</code></p>
+<p>例如</p>
+<pre><code class="language-bash"> $  crystal init lib palindrome-example
+      create  palindrome-example/.gitignore
+      create  palindrome-example/.editorconfig
+      create  palindrome-example/LICENSE
+      create  palindrome-example/README.md
+      create  palindrome-example/.travis.yml
+      create  palindrome-example/shard.yml
+      create  palindrome-example/src/palindrome-example.cr
+      create  palindrome-example/src/palindrome-example/version.cr
+      create  palindrome-example/spec/spec_helper.cr
+      create  palindrome-example/spec/palindrome-example_spec.cr
+Initialized empty Git repository in /&lt;YOUR-DIRECTORY&gt;/.../palindrome-example/.git/
+</code></pre>
+<p>然后 <code>cd</code> 到目录下：</p>
+<p>例如</p>
+<pre><code class="language-bash">cd palindrome-example
+</code></pre>
+<p>然后使用 Git 的来 <code>添加</code> 和 <code>提交</code> 来追踪文件：</p>
+<pre><code class="language-bash"> $  git add -A
+ $  git commit -am &quot;First Commit&quot;
+[master (root-commit) 77bad84] First Commit
+ 10 files changed, 102 insertions(+)
+ create mode 100644 .editorconfig
+ create mode 100644 .gitignore
+ create mode 100644 .travis.yml
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 shard.yml
+ create mode 100644 spec/palindrome-example_spec.cr
+ create mode 100644 spec/spec_helper.cr
+ create mode 100644 src/palindrome-example.cr
+ create mode 100644 src/palindrome-example/version.cr
+</code></pre>
+<a class="header" href="guides/writing_shards.html#a编写代码" id="a编写代码"><h3>编写代码</h3></a>
+<p>代码由你来写，但你所写的代码影响到别人是否愿意使用你的库或者帮你维护它。</p>
+<a class="header" href="guides/writing_shards.html#a测试代码" id="a测试代码"><h4>测试代码</h4></a>
+<ul>
+<li>测试代码。对任何人，包括你来说，这是知道所写的库是否正常的唯一方式。</li>
+<li>Crystal 有个<a href="https://crystal-lang.org/api/Spec.html">内置测试库</a>。使用它吧。</li>
+</ul>
+<a class="header" href="guides/writing_shards.html#a文档" id="a文档"><h4>文档</h4></a>
+<ul>
+<li>使用注释来文档化你的代码。所有的代码，甚至私有方法。</li>
+<li>Crystal 有个内置<a href="../conventions/documenting_code.md">文档生成器</a>。使用它吧。</li>
+</ul>
+<p>运行 <code>crystal docs</code> 来把代码和注释转换为可连接的 API 文档。在 <code>/docs/</code> 目录下用 web 浏览器打开文件以看看你的文档长什么样。</p>
+<p>See below for instructions on hosting your compiler-generated docs on GitHub Pages.</p>
+<p>Once your documentation is ready and available, add this documentation badge below the description in your README.md so users know that it exists.
+(Be sure to replace <code>&lt;LINK-TO-YOUR-DOCUMENTATION&gt;</code> accordingly)</p>
+<pre><code class="language-Markdown">[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](&lt;LINK-TO-YOUR-DOCUMENTATION&gt;) 
+</code></pre>
+<a class="header" href="guides/writing_shards.html#a编写-readme" id="a编写-readme"><h3>编写 README</h3></a>
+<p>A good README can make or break your project.
+<a href="https://github.com/matiassingers/awesome-readme">Awesome README</a> is a nice curation of examples and resources on the topic.</p>
+<p>Most importantly, your README should explain:</p>
+<ol>
+<li>What your library is</li>
+<li>What it does</li>
+<li>How to use it</li>
+</ol>
+<p>This explanation should include a few examples along with subheadings.</p>
+<p>NOTE: Be sure to replace all instances of <code>[your-github-name]</code> in the Crystal-generated README template with your GitHub username.</p>
+<a class="header" href="guides/writing_shards.html#a代码风格" id="a代码风格"><h4>代码风格</h4></a>
+<ul>
+<li>It's fine to have your own style, but sticking to <a href="../conventions/coding_style.md">some core rubrics defined by the Crystal team</a> can help keep your code consistent, readable and usable for other developers.</li>
+<li>Utilize Crystal's <a href="../conventions/documenting_code.md">built-in code formatter</a> to automatically format all <code>.cr</code> files in a directory.</li>
+</ul>
+<p>e.g.</p>
+<pre><code>crystal tool format
+</code></pre>
+<p>To check if your code is formatted correctly, or to check if using the formatter wouldn't produce any changes, simply add <code>--check</code> to the end of this command.</p>
+<p>e.g.</p>
+<pre><code>crystal tool format --check
+</code></pre>
+<p>See the Travis CI section below to implement this in your build.</p>
+<a class="header" href="guides/writing_shards.html#a编写-shardyml" id="a编写-shardyml"><h3>编写 <code>shard.yml</code></h3></a>
+<p><a href="https://github.com/crystal-lang/shards/blob/master/SPEC.md#names">The spec</a> is your rulebook. Follow it.</p>
+<a class="header" href="guides/writing_shards.html#a命名" id="a命名"><h4>命名</h4></a>
+<p>Your <code>shard.yml</code>'s <code>name</code> property should be concise and descriptive.</p>
+<ul>
+<li>Search <a href="https://crystalshards.xyz/">crystalshards.xyz</a> to check if your name is already taken.</li>
+</ul>
+<p>e.g.</p>
+<pre><code class="language-YAML">name: palindrome-example
+</code></pre>
+<a class="header" href="guides/writing_shards.html#a描述" id="a描述"><h4>描述</h4></a>
+<p>Add a <code>description</code> to your <code>shard.yml</code>.</p>
+<p>A <code>description</code> is a single line description used to search for and find your shard.</p>
+<p>A description should be:</p>
+<ol>
+<li>Informative</li>
+<li>Discoverable</li>
+</ol>
+<a class="header" href="guides/writing_shards.html#a优化" id="a优化"><h4>优化</h4></a>
+<p>It's hard for anyone to use your project if they can't find it.
+<a href="https://crystalshards.xyz/">crystalshards.xyz</a> is currently the go-to place for Crystal libraries, so that's what we'll optimize for.</p>
+<p>There are people looking for the <em>exact</em> functionality of our library and the <em>general</em> functionality of our library.
+e.g. Bob needs a palindrome library, but Felipe is just looking for libraries involving text and Susan is looking for libraries involving spelling.</p>
+<p>Our <code>name</code> is already descriptive enough for Bob's search of &quot;palindrome&quot;. We don't need to repeat the <em>palindrome</em> keyword. Instead, we'll catch Susan's search for &quot;spelling&quot; and Felipe's search for &quot;text&quot;.</p>
+<pre><code class="language-YAML">description: |
+  A textual algorithm to tell if a word is spelled the same way forwards as it is backwards.
+</code></pre>
+<a class="header" href="guides/writing_shards.html#github" id="github"><h3>GitHub</h3></a>
+<ul>
+<li>
+<p>Create a repository with the same <code>name</code> and <code>description</code> as specified in your <code>shard.yml</code>.</p>
+</li>
+<li>
+<p>Add and commit everything:</p>
+</li>
+</ul>
+<pre><code class="language-bash">$ git add -A &amp;&amp; git commit -am &quot;shard complete&quot;
+</code></pre>
+<ul>
+<li>Add the remote: (Be sure to replace <code>&lt;YOUR-GITHUB-USERNAME&gt;</code> and <code>&lt;YOUR-REPOSITORY-NAME&gt;</code> accordingly)</li>
+</ul>
+<p>NOTE: If you like, feel free to replace <code>public</code> with <code>origin</code>, or a remote name of your choosing.</p>
+<pre><code class="language-bash">$ git remote add public https://github.com/&lt;YOUR-GITHUB-NAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;.git
+</code></pre>
+<ul>
+<li>Push it:</li>
+</ul>
+<pre><code class="language-bash">$ git push public master
+</code></pre>
+<a class="header" href="guides/writing_shards.html#github-发布" id="github-发布"><h4>GitHub 发布</h4></a>
+<p>It's good practice to do GitHub Releases.</p>
+<p>Add the following markdown build badge below the description in your README to inform users what the most current release is:
+(Be sure to replace <code>&lt;YOUR-GITHUB-USERNAME&gt;</code> and <code>&lt;YOUR-REPOSITORY-NAME&gt;</code> accordingly)</p>
+<pre><code class="language-Markdown">[![GitHub release](https://img.shields.io/github/release/&lt;YOUR-GITHUB-USERNAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;.svg)](https://github.com/&lt;YOUR-GITHUB-USERNAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;/releases)
+</code></pre>
+<p>Start by navigating to your repository's <em>releases</em> page.</p>
+<ul>
+<li>This can be found at <code>https://github.com/&lt;YOUR-GITHUB-NAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;/releases</code></li>
+</ul>
+<p>Click &quot;Create a new release&quot;.</p>
+<p>According to <a href="https://github.com/crystal-lang/shards/blob/master/README.md">the Crystal Shards README</a>,</p>
+<blockquote>
+<p>When libraries are installed from Git repositories, the repository is expected to have version tags following a semver-like format, prefixed with a <code>v</code>. Examples: v1.2.3, v2.0.0-rc1 or v2017.04.1</p>
+</blockquote>
+<p>Accordingly, in the input that says <code>tag version</code>, type <code>v0.1.0</code>. Make sure this matches the <code>version</code> in <code>shard.yml</code>. Title it <code>v0.1.0</code> and write a short description for the release.</p>
+<p>Click &quot;Publish release&quot; and you're done!</p>
+<p>You'll now notice that the GitHub Release badge has updated in your README.</p>
+<p>Follow <a href="http://semver.org/">Semantic Versioning</a> and create a new release every time your push new code to <code>master</code>.</p>
+<a class="header" href="guides/writing_shards.html#travis-ci-和-travisyml" id="travis-ci-和-travisyml"><h3>Travis CI 和 <code>.travis.yml</code></h3></a>
+<p>If you haven't already, <a href="https://travis-ci.org/">sign up for Travis CI</a>.</p>
+<p>Insert the following markdown build badge below the description in your README.md:
+(be sure to replace <code>&lt;YOUR-GITHUB-USERNAME&gt;</code> and <code>&lt;YOUR-REPOSITORY-NAME&gt;</code> accordingly)</p>
+<pre><code class="language-Markdown">[![Build Status](https://travis-ci.org/&lt;YOUR-GITHUB-USERNAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;.svg?branch=master)](https://travis-ci.org/&lt;YOUR-GITHUB-USERNAME&gt;/&lt;YOUR-REPOSITORY-NAME&gt;) 
+</code></pre>
+<p>Build badges are a simple way to tell people whether your Travis CI build passes.</p>
+<p>Add the following lines to your <code>.travis.yml</code>:</p>
+<pre><code class="language-YAML">script:
+  - crystal spec
+</code></pre>
+<p>This tells Travis CI to run your tests.
+Accordingly with the outcome of this command, Travis CI will return a <a href="https://docs.travis-ci.com/user/customizing-the-build/#Breaking-the-Build">build status</a> of &quot;passed&quot;, &quot;errored&quot;, &quot;failed&quot; or &quot;canceled&quot;.</p>
+<p>If you want to verify that all your code has been formatted with <code>crystal tool format</code>, add a script for <code>crystal tool format --check</code>. If the code is not formatted correctly, this will <a href="https://docs.travis-ci.com/user/for-beginners/#Breaking-the-Build">break the build</a> just as failing tests would.</p>
+<p>e.g.</p>
+<pre><code class="language-YAML">script:
+  - crystal spec
+  - crystal tool format --check
+</code></pre>
+<p>Commit and push to GitHub.</p>
+<p>Follow <a href="https://docs.travis-ci.com/user/getting-started/">these guidelines</a> to get your repo up &amp; running on Travis CI.</p>
+<p>Once you're up and running, and the build is passing, the build badge will update in your README.</p>
+<a class="header" href="guides/writing_shards.html#hosting-your-docs-on-github-pages" id="hosting-your-docs-on-github-pages"><h4>Hosting your <code>docs</code> on GitHub-Pages</h4></a>
+<p>Add the following <code>script</code> to your <code>.travis.yml</code>:</p>
+<pre><code class="language-YAML">  - crystal docs
+</code></pre>
+<p>This tells Travis CI to generate your documentation.</p>
+<p>Next, add the following lines to your <code>.travis.yml</code>.
+(Be sure to replace all instances of <code>&lt;YOUR-GITHUB-REPOSITORY-NAME&gt;</code> accordingly)</p>
+<pre><code class="language-YAML">deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: &lt;YOUR-GITHUB-REPOSITORY-NAME&gt;
+  on:
+    branch: master
+  local_dir: docs
+</code></pre>
+<p><a href="https://docs.travis-ci.com/user/environment-variables#Defining-Variables-in-Repository-Settings">Set the Environment Variable</a>, <code>GITHUB_TOKEN</code>, with your <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">personal access token</a>.</p>
+<p>If you've been following along, your <code>.travis.yml</code> file should look something like this:</p>
+<pre><code class="language-YAML">language: crystal
+script:
+  - crystal spec
+  - crystal docs
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: &lt;YOUR-GITHUB-REPOSITORY-NAME&gt;
+  on:
+    branch: master
+  local_dir: docs
+</code></pre>
+<p><a href="https://docs.travis-ci.com/user/deployment/pages/">点击此处</a> 以获取使用 Travis CI 发布到 GitHub-Pages 页面的官方文档。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="guides/testing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="guides/testing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+    </body>
+</html>
